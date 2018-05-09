@@ -42,7 +42,7 @@ class AdminEvents extends Component {
       <div>
         <h1 className="admin-heading">Admin Panel</h1>
         <div>
-          <h1>Live Albums</h1>
+          <h1>Albums</h1>
           <EditAlbums 
             albumsData={this.state.albumsData}
             drinkData={this.state.drinkData}

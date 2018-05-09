@@ -3,13 +3,12 @@ import React, { Component } from "react";
 class EditAlbums extends Component {
     render() {
         const album = this.props.albumsData;
-        const drink = this.props.drinksData;
-        console.log(album);
+        // const drink = this.props.drinksData;
 
         return (
             album.map(albumInfo => {
                 return (
-                    <div className="album-detail-card" >
+                    <div key={albumInfo.id} className="album-detail-card" >
                         <form className="album-input">
                             <label>Album ID:</label>
                             <input className="album-id" type="text" readOnly value={albumInfo.id} />
