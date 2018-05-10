@@ -22,9 +22,6 @@ class EditAlbums extends Component {
         let myData = JSON.stringify(daData);
         let thisId = theId;
         let updateUrl = `https://music-and-cocktails-api.herokuapp.com/albums/${thisId}`;
-        console.log(thisId);
-
-        console.log(myData);
 
         fetch(updateUrl, {
             method: "PUT",
@@ -37,7 +34,7 @@ class EditAlbums extends Component {
             .then(response => response.json())
             .then(response => {
                 let message = document.querySelector(".message");
-                message.textContent = "Your update was successful!";
+                message.textContent = "Your update was submitted!";
                 setTimeout(() => {
                     message.textContent = "";
                 }, 4000);
@@ -48,6 +45,7 @@ class EditAlbums extends Component {
     deleteAlbumData(theId) {
         let thisId = theId;
         let deleteUrl = `https://music-and-cocktails-api.herokuapp.com/albums/${thisId}`;
+        
         fetch(deleteUrl, {
             method: "DELETE",
             headers: {
@@ -128,9 +126,9 @@ class EditAlbums extends Component {
                             <label>Paired Drink</label>
                             <select
                                 ref={input => (this.drink_id = input)}
-                                defaultValue={albumAndDrink.drink_id}
+                                defaultValue={albumAndDrinkInfo.drink_id}
                             >
-                                <option value={albumAndDrink.drink_id} >{albumAndDrink.drink_title}</option>
+                                <option></option>
                                 {
                                     albumAndDrink.map(function (drink) {
                                         return <option key={drink.drink_id}
@@ -145,7 +143,7 @@ class EditAlbums extends Component {
                         </form>
                         <div className="admin-drink-info">
                             <div>
-                                <h1>Current Paired Drink</h1>
+                                <h1>Current Paired Drink Info</h1>
                                 <h3>{albumAndDrinkInfo.drink_title}</h3>
                                 <img src={albumAndDrinkInfo.drink_pic_url} alt={albumAndDrinkInfo.drink_title} height="150" />
                             </div>
