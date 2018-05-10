@@ -45,7 +45,7 @@ class EditAlbums extends Component {
     deleteAlbumData(theId) {
         let thisId = theId;
         let deleteUrl = `https://music-and-cocktails-api.herokuapp.com/albums/${thisId}`;
-        
+
         fetch(deleteUrl, {
             method: "DELETE",
             headers: {
@@ -74,83 +74,90 @@ class EditAlbums extends Component {
             albumAndDrink.map(albumAndDrinkInfo => {
                 return (
                     <div key={albumAndDrinkInfo.id} className="album-detail-card" >
-                        <form
-                            className="album-input"
-                            onClick={this._onClick}
-                            onSubmit={e => this.onSubmit(e)}
-                        >
-
-                            <label>Album ID:</label>
-                            <input
-                                className="album-id"
-                                type="text"
-                                ref={input => (this.id = input)}
-                                readOnly value={albumAndDrinkInfo.id}
-                            />
-
-                            <label>Genre:</label>
-                            <input
-                                type="text"
-                                ref={input => (this.genre = input)}
-                                defaultValue={albumAndDrinkInfo.genre}
-                            />
-
-                            <label>Artist:</label>
-                            <input
-                                type="text"
-                                ref={input => (this.artist = input)}
-                                defaultValue={albumAndDrinkInfo.artist}
-                            />
-
-                            <label>Album Title:</label>
-                            <input
-                                type="text"
-                                ref={input => (this.album_title = input)}
-                                defaultValue={albumAndDrinkInfo.album_title}
-                            />
-
-                            <label>Album Info:</label>
-                            <textarea
-                                type="text"
-                                ref={input => (this.album_info = input)}
-                                defaultValue={albumAndDrinkInfo.album_info}
-                            />
-
-                            <label>Spotify Album ID:</label>
-                            <input
-                                type="text"
-                                ref={input => (this.spotify_album_id = input)}
-                                defaultValue={albumAndDrinkInfo.spotify_album_id}
-                            />
-
-                            <label>Paired Drink</label>
-                            <select
-                                ref={input => (this.drink_id = input)}
-                                defaultValue={albumAndDrinkInfo.drink_id}
+                            <h1>{albumAndDrinkInfo.genre} Album</h1>
+                        <div className="album-detail-card-form">
+                            <form
+                                className="album-input"
+                                onClick={this._onClick}
+                                onSubmit={e => this.onSubmit(e)}
                             >
-                                <option></option>
-                                {
-                                    albumAndDrink.map(function (drink) {
-                                        return <option key={drink.drink_id}
-                                            value={drink.drink_id}>{drink.drink_title}</option>;
-                                    })
-                                }
-                            </select>
 
-                            <input id="update" type="submit" value="Update Album" />
-                            <input id="delete" type="submit" value="Delete Album" />
-                            <p className="message" />
-                        </form>
-                        <div className="admin-drink-info">
-                            <div>
-                                <h1>Current Paired Drink Info</h1>
-                                <h3>{albumAndDrinkInfo.drink_title}</h3>
-                                <img src={albumAndDrinkInfo.drink_pic_url} alt={albumAndDrinkInfo.drink_title} height="150" />
-                            </div>
-                            <div>
-                                <p>{albumAndDrinkInfo.drink_description}</p>
-                                <p>{albumAndDrinkInfo.ingredients}</p>
-                                <p>{albumAndDrinkInfo.direction}</p>
+                                <label>Album ID:</label>
+                                <input
+                                    className="album-id"
+                                    type="text"
+                                    ref={input => (this.id = input)}
+                                    readOnly value={albumAndDrinkInfo.id}
+                                />
+
+                                <label>Genre:</label>
+                                <input
+                                    type="text"
+                                    ref={input => (this.genre = input)}
+                                    defaultValue={albumAndDrinkInfo.genre}
+                                />
+
+                                <label>Artist:</label>
+                                <input
+                                    type="text"
+                                    ref={input => (this.artist = input)}
+                                    defaultValue={albumAndDrinkInfo.artist}
+                                />
+
+                                <label>Album Title:</label>
+                                <input
+                                    type="text"
+                                    ref={input => (this.album_title = input)}
+                                    defaultValue={albumAndDrinkInfo.album_title}
+                                />
+
+                                <label>Album Info:</label>
+                                <textarea
+                                    type="text"
+                                    ref={input => (this.album_info = input)}
+                                    defaultValue={albumAndDrinkInfo.album_info}
+                                />
+
+                                <label>Spotify Album ID:</label>
+                                <input
+                                    type="text"
+                                    ref={input => (this.spotify_album_id = input)}
+                                    defaultValue={albumAndDrinkInfo.spotify_album_id}
+                                />
+
+                                <label>Paired Drink</label>
+                                <select
+                                    ref={input => (this.drink_id = input)}
+                                    defaultValue={albumAndDrinkInfo.drink_id}
+                                >
+                                    <option></option>
+                                    {
+                                        albumAndDrink.map(function (drink) {
+                                            return <option key={drink.drink_id}
+                                                value={drink.drink_id}>{drink.drink_title}</option>;
+                                        })
+                                    }
+                                </select>
+
+                                <input id="update" type="submit" value="Update Album" />
+                                <input id="delete" type="submit" value="Delete Album" />
+                                <p className="message" />
+                            </form>
+                        </div>
+                        <div className="admin-drink-info-card">
+                            <h1>Current Paired Drink Info</h1>
+                            <h3>{albumAndDrinkInfo.drink_title}</h3>
+                            <div className="admin-drink-info">
+                                <div className="">
+                                    <img src={albumAndDrinkInfo.drink_pic_url} alt={albumAndDrinkInfo.drink_title} height="150" />
+                                </div>
+                                <div className="">
+                                    <ul>
+                                        <li>{albumAndDrinkInfo.drink_description}</li>
+                                        <li>{albumAndDrinkInfo.ingredients}</li>
+                                        <li>{albumAndDrinkInfo.direction}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
