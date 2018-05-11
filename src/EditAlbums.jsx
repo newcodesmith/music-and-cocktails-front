@@ -47,13 +47,6 @@ class EditAlbums extends Component {
             body: myData
         })
             .then(response => response.json())
-            .then(response => {
-                let message = document.querySelector(".message");
-                message.textContent = "Your update was submitted!";
-                setTimeout(() => {
-                    message.textContent = "";
-                }, 4000);
-            })
             .catch(err => console.log(err));
     }
 
@@ -76,7 +69,14 @@ class EditAlbums extends Component {
             let theId = e.target.parentNode.querySelector(".album-id").value;
             let daData = this.getFormData(e);
             this.updateAlbumData(daData, theId)
-                .then(() => this.getAlbums());
+                .then(() => this.getAlbums())
+                .then(response => {
+                    let message = document.querySelector(".message");
+                    message.textContent = "Your update was submitted!";
+                    setTimeout(() => {
+                        message.textContent = "";
+                    }, 4000);
+                });
         } else if (e.target.id === "delete") {
             let theId = e.target.parentNode.querySelector(".album-id").value;
             this.deleteAlbumData(theId)
