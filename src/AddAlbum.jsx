@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 class AddAlbum extends Component {
+
+    state={message: ""};
+
     constructor() {
         super();
         this._onClick = this._onClick.bind(this);
@@ -10,30 +13,33 @@ class AddAlbum extends Component {
         return {
             genre: this.genre.value,
             artist: this.artist.value,
-            albumTitle: this.album_title.value,
-            albumInfo: this.album_info.value,
-            spotifyAlbumId: this.spotify_album_id.value,
-            drinkId: this.drink_id.value,
+            album_title: this.album_title.value,
+            album_info: this.album_info.value,
+            spotify_album_id: this.spotify_album_id.value,
+            album_drink_id: this.album_drink_id.value,
+            // album_drink_id: 1,
+
         };
     }
 
     postFormData() {
-        const postUrl = "https://music-and-cocktails-api.herokuapp.com/albums";
-        let myData = this.getFormData();
+        const postUrl = "http://localhost:3000/albums";
+        let myData = JSON.stringify(this.getFormData());
+        console.log(myData);
+        
         fetch(postUrl, {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(myData)
+            body: myData
         })
             .then(response => response.json())
             .then(response => {
-                let message = document.querySelector("#message");
-                message.textContent = "Your event was submitted!";
+                this.setState({message: "Your album was submitted"})
                 setTimeout(() => {
-                    message.textContent = "";
+                    this.setState({message: ""})
                 }, 4000);
             })
             .catch(err => console.log(err));
@@ -49,10 +55,10 @@ class AddAlbum extends Component {
     onSubmit(e) {
         e.preventDefault();
         this.postFormData();
-      }
+    }
 
     render() {
-        const albumAndDrink = this.props.albumsData;
+        const drinkInfo = this.props.drinksData;
 
         return (
             <div className="album-detail-card" >
@@ -80,34 +86,34 @@ class AddAlbum extends Component {
 
                         <label>Album Title:</label>
                         <input
-                            id="albumTitle"
+                            id="album_title"
                             type="text"
                             ref={input => (this.album_title = input)}
                         />
 
                         <label>Album Info:</label>
                         <textarea rows="7"
-                            id="albumInfo"
+                            id="album_info"
                             type="text"
                             ref={input => (this.album_info = input)}
                         />
 
                         <label>Spotify Album ID:</label>
                         <input
-                            id="spotifyAlbumId"
+                            id="spotify_album_id"
                             type="text"
                             ref={input => (this.spotify_album_id = input)}
                         />
 
                         <label>Paired Drink</label>
-                        <select
-                            id="drinkId"
-                            ref={input => (this.drink_id = input)}
-                        >
+
+                        <select id="album_drink_id"
+                            ref={input => (this.album_drink_id = input)}
+                        >                            
                             <option></option>
                             {
-                                albumAndDrink.map(function (drink) {
-                                    return <option key={drink.drink_id}
+                                drinkInfo.map((drink) => {
+                                    return <option key={"drink" + drink.drink_id}
                                         value={drink.drink_id}>{drink.drink_title}</option>;
                                 })
                             }
@@ -115,7 +121,7 @@ class AddAlbum extends Component {
 
                         <input id="add-album" type="submit" value="Add Album" />
                         <input type="reset" value="Clear Form" />
-                        <p className="message" />
+                        <p className="message">{this.state.message}</p>
                     </form>
                 </div>
             </div>

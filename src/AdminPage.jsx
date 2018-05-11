@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import EditAlbums from "./EditAlbums.jsx";
 import AddAlbum from "./AddAlbum.jsx";
+import EditDrinks from "./EditDrinks";
+import AddDrink from "./AddDrink.jsx";
+
+
 
 class AdminEvents extends Component {
   constructor() {
     super();
     this.state = {
-      albumsData: [],
+      drinksData: []
     };
   }
 
@@ -31,12 +35,15 @@ class AdminEvents extends Component {
         <h1 className="admin-heading">Admin Panel</h1>
         <div>
           <h1>Albums</h1>
+          <EditDrinks
+            drinksData={this.state.drinksData}
+          />
           <EditAlbums
-            albumsData={this.state.albumsData}
-            drinkData={this.state.drinkData}
           />
           <AddAlbum
-            albumsData={this.state.albumsData}
+            drinksData={this.state.drinksData}
+          />
+          <AddDrink
           />
         </div>
       </div>

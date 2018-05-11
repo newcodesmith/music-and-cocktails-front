@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import DrinkOptions from "./DrinkOptions.jsx"
 
 class EditAlbums extends Component {
+
+    state={message: ""};
+
     constructor() {
         super();
         this.state = {
@@ -71,12 +74,11 @@ class EditAlbums extends Component {
             this.updateAlbumData(daData, theId)
                 .then(() => this.getAlbums())
                 .then(response => {
-                    let message = document.querySelector(".message");
-                    message.textContent = "Your update was submitted!";
+                    this.setState({message: "Your album was updated"})
                     setTimeout(() => {
-                        message.textContent = "";
+                        this.setState({message: ""})
                     }, 4000);
-                });
+                })
         } else if (e.target.id === "delete") {
             let theId = e.target.parentNode.querySelector(".album-id").value;
             this.deleteAlbumData(theId)
@@ -173,7 +175,7 @@ class EditAlbums extends Component {
 
                                     <input id="update" type="submit" value="Update Album" />
                                     <input id="delete" type="submit" value="Delete Album" />
-                                    <p className="message" />
+                                    <p className="message">{this.state.message}</p>
                                 </form>
                             </div>
 
