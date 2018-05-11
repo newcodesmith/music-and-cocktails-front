@@ -41,14 +41,15 @@ select {
   width: 80%;
 }
 
-input[type=submit] {
+input[type=submit],
+input[type=reset] {
   background: rgb(71, 37, 114); 
   border:  .1rem solid rgb(136, 136, 136);
   cursor: pointer;
   color: #ffffff;
   font-size: 1rem;
   margin: 2rem 1rem 2rem 0;
-  padding: 5px 15px; 
+  padding: .5rem 1rem; 
 }
 
 label {
@@ -64,7 +65,7 @@ label {
   margin: 1rem 10%;
   padding: 3.5rem;
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-  width: 70%;
+  width: 65%;
 }
 
 .album-detail-card:hover {

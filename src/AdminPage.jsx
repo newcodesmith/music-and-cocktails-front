@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import EditAlbums from "./EditAlbums.jsx";
+import AddAlbum from "./AddAlbum.jsx";
 
 class AdminEvents extends Component {
   constructor() {
     super();
     this.state = {
       albumsData: [],
-      drinksData: []
+      drinksData: [],
     };
   }
 
   getAlbums() {
-    const albumsUrl = "https://music-and-cocktails-api.herokuapp.com/albums";
+    const albumsUrl = "http://localhost:3000/albums";
     let albumsDataGrab = response => {
       this.setState({ albumsData: response });
     };
@@ -22,7 +23,7 @@ class AdminEvents extends Component {
   }
 
   getDrinks() {
-    const drinksUrl = "https://music-and-cocktails-api.herokuapp.com/drinks";
+    const drinksUrl = "http://localhost:3000/drinks";
     let drinksDataGrab = response => {
       this.setState({ drinksData: response });
     };
@@ -43,10 +44,13 @@ class AdminEvents extends Component {
         <h1 className="admin-heading">Admin Panel</h1>
         <div>
           <h1>Albums</h1>
-          <EditAlbums 
+          <EditAlbums
             albumsData={this.state.albumsData}
             drinkData={this.state.drinkData}
-            />
+          />
+          <AddAlbum
+            albumsData={this.state.albumsData}
+          />
         </div>
       </div>
     );
