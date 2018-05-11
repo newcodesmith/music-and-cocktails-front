@@ -4,8 +4,21 @@ import DrinkOptions from "./DrinkOptions.jsx"
 class EditAlbums extends Component {
     constructor() {
         super();
+        this.state = {
+            albumsData: []
+        };
 
         this._onClick = this._onClick.bind(this);
+    }
+
+    getAlbums() {
+        const albumsUrl = "http://localhost:3000/albums";
+        let albumsDataGrab = response => {
+            this.setState({ albumsData: response });
+        };
+        return fetch(albumsUrl)
+            .then(response => response.json())
+            .then(albumsDataGrab)
     }
 
     getFormData(e) {
@@ -25,7 +38,7 @@ class EditAlbums extends Component {
 
         let updateUrl = `http://localhost:3000/albums/${thisId}`;
 
-        fetch(updateUrl, {
+        return fetch(updateUrl, {
             method: "PUT",
             headers: {
                 Accept: "application/json",
@@ -48,7 +61,7 @@ class EditAlbums extends Component {
         let thisId = theId;
         let deleteUrl = `http://localhost:3000/albums/${thisId}`;
 
-        fetch(deleteUrl, {
+        return fetch(deleteUrl, {
             method: "DELETE",
             headers: {
                 Accept: "application/json",
@@ -62,104 +75,111 @@ class EditAlbums extends Component {
         if (e.target.id === "update") {
             let theId = e.target.parentNode.querySelector(".album-id").value;
             let daData = this.getFormData(e);
-            this.updateAlbumData(daData, theId);
+            this.updateAlbumData(daData, theId)
+                .then(() => this.getAlbums());
         } else if (e.target.id === "delete") {
             let theId = e.target.parentNode.querySelector(".album-id").value;
-            this.deleteAlbumData(theId);
+            this.deleteAlbumData(theId)
+                .then(() => this.getAlbums());
         }
     }
 
+    componentDidMount() {
+        this.getAlbums();
+    }
+
     render() {
-        const albumAndDrink = this.props.albumsData;
-        // const drinkInfo = this.props.drinkData;
+        const albumAndDrink = this.state.albumsData;
 
         return (
-            albumAndDrink.map(albumAndDrinkInfo => {
 
-                return (
-                    <div key={albumAndDrinkInfo.spotify_album_id} className="album-detail-card" >
-                        <h1>{albumAndDrinkInfo.genre} Album</h1>
-                        <div className="album-detail-card-form">
-                            <form
-                                className="album-input"
-                                onClick={this._onClick}
-                                onSubmit={e => this.onSubmit(e)}
-                            >
+            albumAndDrink.sort((a, b) => a.album_id - b.album_id)
+                .map(albumAndDrinkInfo => {
 
-                                <label>Album ID:</label>
-                                <input
-                                    className="album-id"
-                                    type="text"
-                                    ref={input => (this.id = input)}
-                                    readOnly value={albumAndDrinkInfo.album_id}
-                                />
+                    return (
+                        <div key={"album" + albumAndDrinkInfo.album_id} className="album-detail-card" >
+                            <h1>{albumAndDrinkInfo.genre} Album</h1>
+                            <div className="album-detail-card-form">
+                                <form
+                                    className="album-input"
+                                    onClick={this._onClick}
+                                    onSubmit={e => this.onSubmit(e)}
+                                >
 
-                                <label>Genre:</label>
-                                <input
-                                    type="text"
-                                    ref={input => (this.genre = input)}
-                                    defaultValue={albumAndDrinkInfo.genre}
-                                />
+                                    <label>Album ID:</label>
+                                    <input
+                                        className="album-id"
+                                        type="text"
+                                        ref={input => (this.id = input)}
+                                        readOnly value={albumAndDrinkInfo.album_id}
+                                    />
 
-                                <label>Artist:</label>
-                                <input
-                                    type="text"
-                                    ref={input => (this.artist = input)}
-                                    defaultValue={albumAndDrinkInfo.artist}
-                                />
+                                    <label>Genre:</label>
+                                    <input
+                                        type="text"
+                                        ref={input => (this.genre = input)}
+                                        defaultValue={albumAndDrinkInfo.genre}
+                                    />
 
-                                <label>Album Title:</label>
-                                <input
-                                    type="text"
-                                    ref={input => (this.album_title = input)}
-                                    defaultValue={albumAndDrinkInfo.album_title}
-                                />
+                                    <label>Artist:</label>
+                                    <input
+                                        type="text"
+                                        ref={input => (this.artist = input)}
+                                        defaultValue={albumAndDrinkInfo.artist}
+                                    />
 
-                                <label>Album Info:</label>
-                                <textarea
-                                    type="text"
-                                    ref={input => (this.album_info = input)}
-                                    defaultValue={albumAndDrinkInfo.album_info}
-                                />
+                                    <label>Album Title:</label>
+                                    <input
+                                        type="text"
+                                        ref={input => (this.album_title = input)}
+                                        defaultValue={albumAndDrinkInfo.album_title}
+                                    />
 
-                                <label>Spotify Album ID:</label>
-                                <input
-                                    type="text"
-                                    ref={input => (this.spotify_album_id = input)}
-                                    defaultValue={albumAndDrinkInfo.spotify_album_id}
-                                />
+                                    <label>Album Info:</label>
+                                    <textarea
+                                        type="text"
+                                        ref={input => (this.album_info = input)}
+                                        defaultValue={albumAndDrinkInfo.album_info}
+                                    />
 
-                                <label>Change Paired Drink</label>
-                                <DrinkOptions
-                                    albumsDrink={this.props.albumAndDrinkInfo}
-                                />
+                                    <label>Spotify Album ID:</label>
+                                    <input
+                                        type="text"
+                                        ref={input => (this.spotify_album_id = input)}
+                                        defaultValue={albumAndDrinkInfo.spotify_album_id}
+                                    />
 
-                                <div className="admin-drink-info-card">
-                                    <h1>Current Paired Drink Info</h1>
-                                    <h3>{albumAndDrinkInfo.drink_title}</h3>
-                                    <div className="admin-drink-info">
-                                        <div className="">
-                                            <img src={albumAndDrinkInfo.drink_pic_url} alt={albumAndDrinkInfo.drink_title} height="150" />
-                                        </div>
-                                        <div className="">
-                                            <ul>
-                                                <li>{albumAndDrinkInfo.drink_description}</li>
-                                                <li>{albumAndDrinkInfo.ingredients}</li>
-                                                <li>{albumAndDrinkInfo.direction}</li>
-                                            </ul>
+                                    <label>Change Paired Drink</label>
+                                    <DrinkOptions
+                                        selected={albumAndDrinkInfo.drink_title}
+                                    />
+
+                                    <div className="admin-drink-info-card">
+                                        <h1>Current Paired Drink Info</h1>
+                                        <h3>{albumAndDrinkInfo.drink_title}</h3>
+                                        <div className="admin-drink-info">
+                                            <div className="">
+                                                <img src={albumAndDrinkInfo.drink_pic_url} alt={albumAndDrinkInfo.drink_title} height="150" />
+                                            </div>
+                                            <div className="">
+                                                <ul>
+                                                    <li>{albumAndDrinkInfo.drink_description}</li>
+                                                    <li>{albumAndDrinkInfo.ingredients}</li>
+                                                    <li>{albumAndDrinkInfo.direction}</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <input id="update" type="submit" value="Update Album" />
-                                <input id="delete" type="submit" value="Delete Album" />
-                                <p className="message" />
-                            </form>
+                                    <input id="update" type="submit" value="Update Album" />
+                                    <input id="delete" type="submit" value="Delete Album" />
+                                    <p className="message" />
+                                </form>
+                            </div>
+
                         </div>
-
-                    </div>
-                )
-            })
+                    )
+                })
         );
     }
 }

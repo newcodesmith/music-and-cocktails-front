@@ -7,19 +7,7 @@ class AdminEvents extends Component {
     super();
     this.state = {
       albumsData: [],
-      drinksData: [],
     };
-  }
-
-  getAlbums() {
-    const albumsUrl = "http://localhost:3000/albums";
-    let albumsDataGrab = response => {
-      this.setState({ albumsData: response });
-    };
-    return fetch(albumsUrl)
-      .then(response => response.json())
-      .then(albumsDataGrab)
-      .catch();
   }
 
   getDrinks() {
@@ -34,7 +22,6 @@ class AdminEvents extends Component {
   }
 
   componentDidMount() {
-    this.getAlbums();
     this.getDrinks();
   }
 

@@ -24,18 +24,15 @@ class DrinkOptions extends Component {
     }
 
     render() {
-        const albumAndDrink = this.state.drinksData;
+        const drinkInfo = this.state.drinksData;
 
         return (
-            <select
-                ref={input => (this.drink_id = input)}
-                defaultValue=""
-            >
+            <select>
                 <option></option>
-
                 {
-                    albumAndDrink.map(function (drink) {
-                        return <option key={drink.drink_id}
+                    drinkInfo.map((drink) => {
+                        return <option key={"drink" + drink.drink_id}
+                            selected={drink.drink_title === this.props.selected}
                             value={drink.drink_id}>{drink.drink_title}</option>;
                     })
                 }
