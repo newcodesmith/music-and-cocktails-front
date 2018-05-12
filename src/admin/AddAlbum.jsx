@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class AddAlbum extends Component {
 
-    state={message: ""};
+    state = { message: "" };
 
     constructor() {
         super();
@@ -24,7 +24,7 @@ class AddAlbum extends Component {
         const postUrl = "http://localhost:3000/albums";
         let myData = JSON.stringify(this.getFormData());
         console.log(myData);
-        
+
         fetch(postUrl, {
             method: "POST",
             headers: {
@@ -35,9 +35,9 @@ class AddAlbum extends Component {
         })
             .then(response => response.json())
             .then(response => {
-                this.setState({message: "Your album was submitted"})
+                this.setState({ message: "Your album was submitted" })
                 setTimeout(() => {
-                    this.setState({message: ""})
+                    this.setState({ message: "" })
                 }, 4000);
             })
             .catch(err => console.log(err));
@@ -107,7 +107,7 @@ class AddAlbum extends Component {
 
                         <select id="album_drink_id"
                             ref={input => (this.album_drink_id = input)}
-                        >                            
+                        >
                             <option></option>
                             {
                                 drinkInfo.map((drink) => {

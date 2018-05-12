@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class EditDrinks extends Component {
-    
-    state={message: ""};
+
+    state = { message: "" };
 
     constructor() {
         super();
@@ -74,9 +74,9 @@ class EditDrinks extends Component {
             this.updateDrinksData(daData, theId)
                 .then(() => this.getDrinks())
                 .then(response => {
-                    this.setState({message: "Your drink was updated"})
+                    this.setState({ message: "Your drink was updated" })
                     setTimeout(() => {
-                        this.setState({message: ""})
+                        this.setState({ message: "" })
                     }, 4000);
                 })
         } else if (e.target.id === "delete") {

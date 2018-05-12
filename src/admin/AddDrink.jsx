@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class AddDrink extends Component {
-    
-    state={message: ""};
+
+    state = { message: "" };
 
     constructor() {
         super();
@@ -34,9 +34,9 @@ class AddDrink extends Component {
         })
             .then(response => response.json())
             .then(response => {
-                this.setState({message: "Your drink was submitted"})
+                this.setState({ message: "Your drink was submitted" })
                 setTimeout(() => {
-                    this.setState({message: ""})
+                    this.setState({ message: "" })
                 }, 4000);
             })
             .catch(err => console.log(err));
