@@ -160,9 +160,13 @@ class EditDrinks extends Component {
                                         <h3>Current Drink Picture</h3>
                                         <img src={drinkInfo.drink_pic_url} alt={drinkInfo.drink_title} height="150" />
                                     </div>
-                                    <input id="update" type="submit" value="Update Drink" />
-                                    <input id="delete" type="submit" value="Delete Drink" />
-                                    <p className="message">{this.state.message}</p>
+
+                                    <div className="submit-buttons">
+                                        <input id="update" type="submit" value="Update Drink" />
+                                        <input id="delete" type="submit" value="Delete Drink" />
+                                        <p className="message">{this.state.message}</p>
+                                    </div>
+
                                 </form>
                             </div>
 

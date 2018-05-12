@@ -100,9 +100,12 @@ class AddDrink extends Component {
                             ref={input => (this.drink_pic_url = input)}
                         />
 
+                        <div className="submit-buttons">
                         <input id="add-drink" type="submit" value="Add Drink" />
                         <input type="reset" value="Clear Form" />
                         <p className="message">{this.state.message}</p>
+                        </div>
+                        
                     </form>
                 </div>
             </div>

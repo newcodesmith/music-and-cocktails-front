@@ -74,6 +74,12 @@ input[type=reset] {
   padding: .5rem 1rem;
 }
 
+.submit-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 label {
   width: 20%;
   display: inline-block;

@@ -117,9 +117,12 @@ class AddAlbum extends Component {
                             }
                         </select>
 
-                        <input id="add-album" type="submit" value="Add Album" />
-                        <input type="reset" value="Clear Form" />
-                        <p className="message">{this.state.message}</p>
+                        <div className="submit-buttons">
+                            <input id="add-album" type="submit" value="Add Album" />
+                            <input type="reset" value="Clear Form" />
+                            <p className="message">{this.state.message}</p>
+                        </div>
+
                     </form>
                 </div>
             </div>

@@ -120,7 +120,7 @@ class EditAlbums extends Component {
                                     <input
                                         type="text"
                                         ref={input => (this.genre = input)}
-                                        defaultValue={albumAndDrinkInfo.genre}
+                                        readOnly defaultValue={albumAndDrinkInfo.genre}
                                     />
 
                                     <label>Artist:</label>
@@ -177,9 +177,12 @@ class EditAlbums extends Component {
                                         </div>
                                     </div>
 
-                                    <input id="update" type="submit" value="Update Album" />
-                                    <input id="delete" type="submit" value="Delete Album" />
-                                    <p className="message">{this.state.message}</p>
+                                    <div className="submit-buttons">
+                                        <input id="update" type="submit" value="Update Album" />
+                                        {/* <input id="delete" type="submit" value="Delete Album" /> */}
+                                        <p className="message">{this.state.message}</p>
+                                    </div>
+
                                 </form>
                             </div>
 

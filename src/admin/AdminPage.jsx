@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EditAlbums from "./EditAlbums.jsx";
-import AddAlbum from "./AddAlbum.jsx";
+// import AddAlbum from "./AddAlbum.jsx";
 import EditDrinks from "./EditDrinks";
 import AddDrink from "./AddDrink.jsx";
 
@@ -37,10 +37,10 @@ class AdminEvents extends Component {
           <h1>Albums</h1>
           <EditAlbums
           />
-          <h1>Add Album</h1>
+          {/* <h1>Add Album</h1>
           <AddAlbum
             drinksData={this.state.drinksData}
-          />
+          /> */}
           <h1>Drinks</h1>
           <EditDrinks
             drinksData={this.state.drinksData}
