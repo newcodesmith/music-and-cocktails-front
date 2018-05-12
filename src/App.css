@@ -1,30 +1,59 @@
-/* .App {
-  text-align: center;
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.nav-bar {
+  background-color: rgb(53, 27, 6);
+  display: flex;
+  flex-direction: row;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.nav-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-bar li {
+  color: #f1f1f1;
+}
+
+.nav-bar li a {
+  display: block;
   color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.App-title {
-  font-size: 1.5em;
+.nav-logo {
+  border: .1rem solid rgb(255, 255, 255);
+  display: inline-block;
 }
 
-.App-intro {
-  font-size: large;
-} */
+.nav-logo p {
+  display: block;
+  text-align: center;
+  color: #f1f1f1;
+}
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 input[type=text],
@@ -47,19 +76,19 @@ input[type=text] {
 
 input[type=submit],
 input[type=reset] {
-  background: rgb(71, 37, 114); 
-  border:  .1rem solid rgb(136, 136, 136);
+  background: rgb(71, 37, 114);
+  border: .1rem solid rgb(136, 136, 136);
   cursor: pointer;
   color: #ffffff;
   font-size: 1rem;
   margin: 2rem 1rem 2rem 0;
-  padding: .5rem 1rem; 
+  padding: .5rem 1rem;
 }
 
 label {
   width: 20%;
   display: inline-block;
-    margin-bottom: .5rem;
+  margin-bottom: .5rem;
 }
 
 .album-detail-card,
@@ -101,7 +130,6 @@ label {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.377), 0 1px 2px rgba(0, 0, 0, 0.452);
   margin-top: 1rem;
   padding: 2rem;
-  
 }
 
 .admin-drink-info-card h1 {

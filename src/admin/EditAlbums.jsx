@@ -3,7 +3,7 @@ import DrinkOptions from "./DrinkOptions.jsx"
 
 class EditAlbums extends Component {
 
-    state={message: ""};
+    state = { message: "" };
 
     constructor() {
         super();
@@ -74,9 +74,9 @@ class EditAlbums extends Component {
             this.updateAlbumData(daData, theId)
                 .then(() => this.getAlbums())
                 .then(response => {
-                    this.setState({message: "Your album was updated"})
+                    this.setState({ message: "Your album was updated" })
                     setTimeout(() => {
-                        this.setState({message: ""})
+                        this.setState({ message: "" })
                     }, 4000);
                 })
         } else if (e.target.id === "delete") {
@@ -166,7 +166,11 @@ class EditAlbums extends Component {
                                             <div className="">
                                                 <ul>
                                                     <li>{albumAndDrinkInfo.drink_description}</li>
-                                                    <li>{albumAndDrinkInfo.ingredients}</li>
+                                                    <div>
+                                                        {albumAndDrinkInfo.ingredients.split('\n').map((item, key) => {
+                                                            return <span key={key}>{item}<br /></span>
+                                                        })}
+                                                    </div>
                                                     <li>{albumAndDrinkInfo.direction}</li>
                                                 </ul>
                                             </div>

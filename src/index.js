@@ -1,8 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import Header from './Header.jsx';
 import registerServiceWorker from './registerServiceWorker';
+import Home from './Home.jsx';
+import AdminPage from './admin/AdminPage';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Router>
+        <div>
+            <Header />
+            <Route exact path="/" component={Home} />
+            <Route path="/admin" component={AdminPage} />
+        </div>
+    </Router>,
+
+document.getElementById('root'));
 registerServiceWorker();

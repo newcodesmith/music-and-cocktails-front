@@ -55,8 +55,6 @@ class AddDrink extends Component {
     }
 
     render() {
-        const drinkInfo = this.props.drinksData;
-
         return (
             <div className="drink-detail-card" >
                 <div className="drink-detail-card-form">

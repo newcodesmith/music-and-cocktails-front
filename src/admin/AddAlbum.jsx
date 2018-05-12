@@ -17,8 +17,6 @@ class AddAlbum extends Component {
             album_info: this.album_info.value,
             spotify_album_id: this.spotify_album_id.value,
             album_drink_id: this.album_drink_id.value,
-            // album_drink_id: 1,
-
         };
     }
 
