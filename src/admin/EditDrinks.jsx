@@ -69,7 +69,7 @@ class EditDrinks extends Component {
     _onClick(e) {
         e.preventDefault();
         if (e.target.id === "update") {
-            let theId = e.target.parentNode.querySelector(".drink-id").value;
+            let theId = this.drink_id.value;
             let daData = this.getFormData(e);
             this.updateDrinksData(daData, theId)
                 .then(() => this.getDrinks())
@@ -80,7 +80,7 @@ class EditDrinks extends Component {
                     }, 4000);
                 })
         } else if (e.target.id === "delete") {
-            let theId = e.target.parentNode.querySelector(".drink-id").value;
+            let theId = this.drink_id.value;
             this.deleteDrinksData(theId)
                 .then(() => this.getDrinks());
         }
@@ -113,7 +113,7 @@ class EditDrinks extends Component {
                                         id="drink_id"
                                         className="drink-id"
                                         type="text"
-                                        ref={input => (this.id = input)}
+                                        ref={input => (this.drink_id = input)}
                                         readOnly value={drinkInfo.drink_id}
                                     />
 

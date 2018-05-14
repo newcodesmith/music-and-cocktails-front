@@ -10,7 +10,9 @@ class AdminEvents extends Component {
   constructor() {
     super();
     this.state = {
-      drinksData: []
+      drinksData: [],
+      showHideAlbums: true,
+      showHideDrinks: false
     };
   }
 
