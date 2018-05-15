@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
+import queryString from "query-string"
 import './App.css';
 
 import HomePageGenres from './HomePageGenres.jsx'
-
-import queryString from "query-string"
-import SpotifyPlayer from 'react-spotify-player';
 
 class Home extends Component {
 
