@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 class DrinkInfoCard extends Component {
 
     render() {
-        const drinkInfo = this.props;
-        // console.log(drinkInfo);
+        const drinkInfo = this.props.drinkInfo;
         
         return (
             <div className="admin-drink-info-card">
@@ -17,11 +16,7 @@ class DrinkInfoCard extends Component {
                     <div className="">
                         <ul>
                             <li>{drinkInfo.drink_description}</li>
-                            <li>
-                                {/* {drinkInfo.ingredients.split('\n').map((item, key) => {
-                                    return <span key={key}>{item}<br /></span>
-                                })} */}
-                            </li>
+                            <li>{drinkInfo.ingredients}</li>
                             <li>{drinkInfo.direction}</li>
                         </ul>
                     </div>

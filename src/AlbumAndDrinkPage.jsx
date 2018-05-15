@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 
 import queryString from "query-string"
-import SpotifyPlayer from 'react-spotify-player';
 import UserDrinkInfoCard from './UserDrinkInfoCard.jsx';
+import UserAlbumCard from './UserAlbumCard';
 
 class AlbumAndDrinkPage extends Component {
     state = {
         albumId: this.props.location.state,
         accessToken: queryString.parse(window.location.search).access_token,
-        albumData: []
+        albumData: {},
+        userData: [],
     };
 
     getAlbum() {
@@ -23,18 +24,35 @@ class AlbumAndDrinkPage extends Component {
             .then(albumDataGrab)
     };
 
+    getUserData() {
+        let accessToken = this.state.accessToken
+
+        fetch("https://api.spotify.com/v1/me", {
+            headers: { "Authorization": "Bearer " + accessToken }
+        })
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                this.setState({
+                    userData: data
+                })
+            });
+    }
+
     componentDidMount() {
         this.getAlbum();
+        this.getUserData();
     }
 
     render() {
-        const albumId = this.state.albumId;
         return (
             <div>
-                <h1>This is the Album and Drink Page</h1>
-                <h2>{albumId}</h2>
-                <UserDrinkInfoCard 
-                drinkInfo= {this.state.albumData}
+                <UserAlbumCard
+                    {...this.state}
+                />
+                <UserDrinkInfoCard
+                    drinkInfo={this.state.albumData}
                 />
             </div>
         )

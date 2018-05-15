@@ -4,7 +4,6 @@ class UserDrinkInfoCard extends Component {
 
     render() {
         const drinkInfo = this.props.drinkInfo;
-        // console.log(drinkInfo);
         
         return (
             <div className="admin-drink-info-card">

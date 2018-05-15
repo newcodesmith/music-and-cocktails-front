@@ -5,6 +5,7 @@ import queryString from "query-string"
 
 class HomePageGenres extends Component {
 
+
     render() {
         let parsed = queryString.parse(window.location.search)
         let accessToken = parsed.access_token
@@ -12,7 +13,7 @@ class HomePageGenres extends Component {
         return (
             albumsData.map(albumData => {
                 return (
-                    <div>
+                    <div key={albumData.genre}>
                         <h1>{albumData.genre}</h1>
                         <h3>This months {albumData.genre} pick is "{albumData.album_title}" by {albumData.artist}.</h3>
                         <h3>Were have paired a {albumData.drink_title} with this album.</h3>

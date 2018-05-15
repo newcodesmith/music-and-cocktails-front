@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+
 class DrinkOptions extends Component {
     constructor() {
         super();
         this.state = {
-            drinksData: []
+            drinksData: [],
+            albumInfo: this.props
         };
     }
 
@@ -25,14 +27,14 @@ class DrinkOptions extends Component {
 
     render() {
         const drinkInfo = this.state.drinksData;
-
+        const albumInfo = this.props.albumInfo;
         return (
             <select>
                 <option></option>
                 {
                     drinkInfo.map((drink) => {
                         return <option key={"drink" + drink.drink_id}
-                            selected={drink.drink_title === this.props.selected}
+                            selected={drink.drink_title === albumInfo.drink_title}
                             value={drink.drink_id}>{drink.drink_title}</option>;
                     })
                 }

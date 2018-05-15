@@ -6,13 +6,6 @@ class EditAlbum extends Component {
     constructor() {
         super()
         this.state = {
-            album_id: null,
-            genre: null,
-            artist: null,
-            album_title: null,
-            album_info: null,
-            spotify_album_id: null,
-            album_drink_id: null,
             ...this.props
         };
 
@@ -35,7 +28,7 @@ class EditAlbum extends Component {
     }
 
     render() {
-        console.log('rendering.props', this.props);
+        // console.log('rendering.props', this.props);
 
         return (
             <div className="album-detail-card" >
@@ -98,7 +91,7 @@ class EditAlbum extends Component {
 
                         <label>Change Paired Drink</label>
                         <DrinkOptions
-                            selected={this.props.drink_title}
+                            albumInfo={this.state}
                             name='album_drink_id'
                             onChange={this.handleChange}
                         />
