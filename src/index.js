@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import Header from './Header.jsx';
 import registerServiceWorker from './registerServiceWorker';
+import SplashPage from './SplashPage.jsx'
 import Home from './Home.jsx';
 import AdminPage from './admin/AdminPage';
 
@@ -11,7 +12,8 @@ ReactDOM.render(
     <Router>
         <div>
             <Header />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={SplashPage} />
+            <Route exact path="/home" component={Home} />
             <Route path="/admin" component={AdminPage} />
         </div>
     </Router>,

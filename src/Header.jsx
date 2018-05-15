@@ -13,7 +13,11 @@ class Header extends Component {
                     <ul>
                         <li><a>Home</a></li>
                         <li><a>About</a></li>
+                        <div onClick={() => window.location = "/"} id="header-signout">
+                            <li>Log Out</li>
+                        </div>
                     </ul>
+
                 </nav>
 
             </div>

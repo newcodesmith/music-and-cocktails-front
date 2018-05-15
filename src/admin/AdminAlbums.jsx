@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import DrinkOptions from "./DrinkOptions.jsx"
 import EditAlbum from "./EditAlbum.jsx"
 
-class EditAlbums extends Component {
+class AdminAlbums extends Component {
 
     state = {
         message: "",
@@ -57,25 +56,25 @@ class EditAlbums extends Component {
         }).catch(err => console.log(err));
     }
 
-    _onClick = (e) => {
-        e.preventDefault();
-        if (e.target.id === "update") {
-            let theId = this.album_id.value;
-            let daData = this.getFormData(e);
-            this.updateAlbumData(daData, theId)
-                .then(() => this.getAlbums())
-                .then(response => {
-                    this.setState({ message: "Your album was updated" })
-                    setTimeout(() => {
-                        this.setState({ message: "" })
-                    }, 4000);
-                })
-        } else if (e.target.id === "delete") {
-            let theId = this.album_id.value;
-            this.deleteAlbumData(theId)
-                .then(() => this.getAlbums());
-        }
-    }
+    // _onClick = (e) => {
+    //     e.preventDefault();
+    //     if (e.target.id === "update") {
+    //         let theId = this.album_id.value;
+    //         let daData = this.getFormData(e);
+    //         this.updateAlbumData(daData, theId)
+    //             .then(() => this.getAlbums())
+    //             .then(response => {
+    //                 this.setState({ message: "Your album was updated" })
+    //                 setTimeout(() => {
+    //                     this.setState({ message: "" })
+    //                 }, 4000);
+    //             })
+    //     } else if (e.target.id === "delete") {
+    //         let theId = this.album_id.value;
+    //         this.deleteAlbumData(theId)
+    //             .then(() => this.getAlbums());
+    //     }
+    // }
 
     componentDidMount() {
         this.getAlbums();
@@ -90,10 +89,9 @@ class EditAlbums extends Component {
                 .map(data => <EditAlbum
                     key={data.album_id} {...data}
                     saveAlbum={this.updateAlbumData}
-                    drinkInfo={this.state.drinkInfo}
                 />)
         );
     }
 }
 
-export default EditAlbums;
+export default AdminAlbums;
