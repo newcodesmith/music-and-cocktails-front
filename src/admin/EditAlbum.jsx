@@ -6,7 +6,7 @@ class EditAlbum extends Component {
     constructor() {
         super()
         this.state = {
-            ...this.props
+            ...this.props,
         };
 
     }
@@ -18,6 +18,7 @@ class EditAlbum extends Component {
         }
         this.setState(newState)
     }
+
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
         // console.log("changeState", this.state);
@@ -92,7 +93,7 @@ class EditAlbum extends Component {
                         <label>Change Paired Drink</label>
                         <DrinkOptions
                             albumInfo={this.state}
-                            name='album_drink_id'
+                            drinkValue={this.props.album_drink_id}
                             onChange={this.handleChange}
                         />
 

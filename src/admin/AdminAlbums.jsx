@@ -86,10 +86,12 @@ class AdminAlbums extends Component {
         return (
 
             albumAndDrink.sort((a, b) => a.album_id - b.album_id)
-                .map(data => <EditAlbum
-                    key={data.album_id} {...data}
-                    saveAlbum={this.updateAlbumData}
-                />)
+                .map(data =>
+                    <EditAlbum
+                        key={data.album_id} {...data}
+                        saveAlbum={this.updateAlbumData}
+                    />
+                )
         );
     }
 }

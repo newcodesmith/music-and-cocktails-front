@@ -15,11 +15,11 @@ ReactDOM.render(
             <Header />
             <Route exact path="/" component={SplashPage} />
             <Route exact path="/home" component={Home} />
-            <Route exact path="/Rock/Pop" component={AlbumAndDrinkPage} />
+            <Route exact path="/Rock-Pop" component={AlbumAndDrinkPage} />
             <Route exact path="/Indie" component={AlbumAndDrinkPage} />
             <Route exact path="/R&B" component={AlbumAndDrinkPage} />
             <Route exact path="/Jazz" component={AlbumAndDrinkPage} />
-            <Route exact path="/Folk/Country" component={AlbumAndDrinkPage} />
+            <Route exact path="/Folk-Country" component={AlbumAndDrinkPage} />
             <Route exact path="/Rap" component={AlbumAndDrinkPage} />
 
             <Route path="/admin" component={AdminPage} />
