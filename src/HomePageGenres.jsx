@@ -11,7 +11,7 @@ class HomePageGenres extends Component {
         let accessToken = parsed.access_token
         const albumsData = this.props.albumsData;
         return (
-            albumsData.map(albumData => {
+            albumsData.sort((a, b) => a.album_id - b.album_id).map(albumData => {
                 return (
                     <div key={albumData.genre}>
                         <h1>{albumData.genre}</h1>

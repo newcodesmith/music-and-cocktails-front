@@ -42,61 +42,78 @@
 }
 
 /* entire container, keeps perspective */
+
 .flip-container {
   perspective: 1000px;
 }
-	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
 
-.flip-container, .front, .back {
-	width: 400px;
-	height: 400px;
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+  width: 400px;
+  height: 400px;
 }
 
 /* flip speed goes here */
-.flipper {
-	transition: 0.4s;
-	transform-style: preserve-3d;
 
-	position: relative;
+.flipper {
+  transition: 0.4s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
 /* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
 
-	position: absolute;
-	top: 0;
-	left: 0;
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* front pane, placed above back */
+
 .front {
-	z-index: 2;
-	/* for firefox 31 */
+  z-index: 2;
+  /* for firefox 31 */
   transform: rotateY(0deg);
   border: 1px solid black;
 }
 
 /* back, initially hidden pane */
+
 .back {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.back img{
+.back img {
   height: 400px;
   width: 400px;
 }
-
 
 .front-1 {
   background-color: rgb(255, 230, 0);
 }
 
-.back-1 {
+.back-1 {}
 
+.edit-album-form-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-album-form-1,
+.edit-album-form-2 {
+  width: 50%;
+  margin: 1rem;
 }
 
 input[type=text],
@@ -112,43 +129,27 @@ select {
   width: 80%;
 }
 
-select,
-input[type=text] {
-  height: 40px;
+.album-id {
+  width: 2rem;
 }
 
-input[type=submit],
-input[type=reset] {
-  background: rgb(71, 37, 114);
-  border: .1rem solid rgb(136, 136, 136);
-  cursor: pointer;
-  color: #ffffff;
-  font-size: 1rem;
-  margin: 2rem 1rem 2rem 0;
-  padding: .5rem 1rem;
-}
-
-.submit-buttons {
+.form-id-genre {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-label {
-  width: 20%;
-  display: inline-block;
-  margin-bottom: .5rem;
+  flex-direction: row;
 }
 
 .album-detail-card,
-.drink-detail-card {
+.drink-detail-card,
+.admin-drink-info-card {
   background-color: #f1f1f1;
-  border: 2px solid #7222a7;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  margin: 1rem 10%;
-  padding: 3.5rem;
+  border: 1.5px solid #7222a7;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  font-family: 'Raleway', sans-serif;
+  margin: 10px auto;
+  max-width: 80%;
+  padding: 20px;
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-  width: 65%;
 }
 
 .album-detail-card:hover,
@@ -156,15 +157,99 @@ label {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.album-detail-card h1,
-.drink-detail-card h1 {
-  margin-top: 0;
+.album-detail-card fieldset,
+.drink-detail-card fieldset {
+  border: none;
 }
 
-.album-detail-card-form,
-.drink-detail-card-form {
-  margin: 1rem 3%;
-  width: 94%;
+.album-detail-card input[type="text"],
+.drink-detail-card input[type="text"],
+.album-detail-card input[type="url"],
+.drink-detail-card input[type="url"],
+.album-detail-card textarea,
+.drink-detail-card textarea,
+.Select-control {
+  font-family: 'Raleway', sans-serif;
+  background: rgba(255, 255, 255, .1);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #ffffff;
+  color: #56545c;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+}
+
+.album-detail-card input[type="text"] :focus,
+.drink-detail-card input[type="text"] :focus,
+.album-detail-card input[type="url"] :focus,
+.drink-detail-card input[type="url"] :focus,
+.album-detail-card textarea :focus,
+.drink-detail-card textarea :focus,
+.Select-control :focus {
+  background: #cccccc;
+}
+
+.admin-album-cover-container {
+  margin-bottom: 3rem;
+  width: 200px;
+}
+
+.admin-album-cover-container h5 {
+  color: #56545c;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+
+
+.Select-control {
+  -webkit-appearance: menulist-button;
+  height: 35px;
+}
+
+.album-detail-card input[type="submit"],
+.drink-detail-card input[type="button"],
+.album-detail-card input[type="submit"],
+.drink-detail-card input[type="button"] {
+  position: relative;
+  display: block;
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  margin: 0 auto;
+  background: #7226c9;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  font-family: 'Raleway', sans-serif;
+  width: 30%;
+  border: 1px solid #3c0e5a;
+  margin-bottom: 10px;
+}
+
+.album-detail-card input[type="submit"] :hover,
+.drink-detail-card input[type="button"] :hover,
+.album-detail-card input[type="submit"] :hover,
+.drink-detail-card input[type="button"] :hover {
+  background: #2b0a5f;
+}
+
+.admin-album-image {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);
 }
 
 .message {
@@ -175,10 +260,6 @@ label {
 
 .admin-drink-info-card {
   background-color: rgb(219, 218, 218);
-  border: .1rem solid #6c3e88;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.377), 0 1px 2px rgba(0, 0, 0, 0.452);
-  margin-top: 1rem;
-  padding: 2rem;
 }
 
 .admin-drink-info-card h1 {

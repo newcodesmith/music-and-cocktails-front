@@ -6,14 +6,6 @@ class EditAlbum extends Component {
     constructor() {
         super()
         this.state = {
-            album_id: null,
-            genre: null,
-            artist: null,
-            album_title: null,
-            album_info: null,
-            album_cover_url: null,
-            spotify_album_id: null,
-            album_drink_id: null,
             ...this.props,
         };
 
@@ -28,7 +20,6 @@ class EditAlbum extends Component {
     }
 
     handleChange = (event) => {
-        // console.log("the event", event);
         this.setState({ [event.target.name]: event.target.value });
 
     }
@@ -54,20 +45,15 @@ class EditAlbum extends Component {
                     this.setState({ message: "" })
                 }, 4000);
             })
-
-        console.log("this is the submitted state", this.state);
-
     }
 
     updateDrinkSelection = (albumDrinkObject) => {
-    const albumDrinkID = parseInt(albumDrinkObject.value)
-    console.log("album Drink ID", albumDrinkID);
-        this.setState({album_drink_id: albumDrinkID})
+        const albumDrinkID = parseInt(albumDrinkObject.value)
+        console.log("album Drink ID", albumDrinkID);
+        this.setState({ album_drink_id: albumDrinkID })
     }
 
     render() {
-        // console.log('rendering.props', this.props);
-
         return (
             <div className="album-detail-card" >
                 <h1>{this.props.genre} Album</h1>
@@ -76,80 +62,92 @@ class EditAlbum extends Component {
                         className="album-input"
                         onSubmit={this.handleSave}
                     >
+                        <div className="edit-album-form-layout">
+                            <div className="edit-album-form-1">
+                                <div className="form-id-genre">
+                                    <div className="form-id" hidden>
+                                        <label>Album ID:</label>
+                                        <input
+                                            className="album-id"
+                                            type="text"
+                                            name='album_id'
+                                            value={this.props.album_id}
+                                        />
+                                    </div>
+                                    <div className="form-genre" hidden>
+                                        <label>Genre:</label>
+                                        <input
+                                            type="text"
+                                            name='genre'
+                                            value={this.props.genre}
+                                        />
+                                    </div>
+                                </div>
 
-                        <label>Album ID:</label>
-                        <input
-                            className="album-id"
-                            type="text"
-                            name='album_id'
-                            value={this.props.album_id}
-                        />
+                                <label>Artist:</label>
+                                <input
+                                    type="text"
+                                    name='artist'
+                                    onChange={this.handleChange}
+                                    defaultValue={this.props.artist}
+                                />
 
-                        <label>Genre:</label>
-                        <input
-                            type="text"
-                            name='genre'
-                            value={this.props.genre}
-                        />
+                                <label>Album Title:</label>
+                                <input
+                                    type="text"
+                                    name='album_title'
+                                    onChange={this.handleChange}
+                                    defaultValue={this.props.album_title}
+                                />
 
-                        <label>Artist:</label>
-                        <input
-                            type="text"
-                            name='artist'
-                            onChange={this.handleChange}
-                            defaultValue={this.props.artist}
-                        />
+                                <label>Album Info:</label>
+                                <textarea
+                                    type="text"
+                                    name='album_info'
+                                    onChange={this.handleChange}
+                                    defaultValue={this.props.album_info}
+                                />
 
-                        <label>Album Title:</label>
-                        <input
-                            type="text"
-                            name='album_title'
-                            onChange={this.handleChange}
-                            defaultValue={this.props.album_title}
-                        />
+                                <label>Album Cover URL:</label>
+                                <textarea
+                                    type="url"
+                                    name='album_cover_url'
+                                    onChange={this.handleChange}
+                                    defaultValue={this.props.album_cover_url}
+                                />
 
-                        <label>Album Info:</label>
-                        <textarea
-                            type="text"
-                            name='album_info'
-                            onChange={this.handleChange}
-                            defaultValue={this.props.album_info}
-                        />
+                                <div className="admin-album-cover-container">
+                                    <h5>Album Cover Preview:</h5>
+                                    <div className="admin-album-image">
+                                    <img src={this.state.album_cover_url} alt={this.props.album_title} height="200px" />
+                                    </div>
+                                </div>
 
-                        <label>Album Cover URL:</label>
-                        <textarea
-                            type="text"
-                            name='album_cover_url'
-                            onChange={this.handleChange}
-                            defaultValue={this.props.album_cover_url}
-                        />
+                                <label>Spotify Album ID:</label>
+                                <input
+                                    type="text"
+                                    name='spotify_album_id'
+                                    onChange={this.handleChange}
+                                    defaultValue={this.props.spotify_album_id}
+                                />
+                            </div>
 
-                        <div>
-                            <label>Current Album Cover:</label>
-                            <img src={this.props.album_cover_url} alt={this.props.album_title} height="200px" />
+                            <div className="edit-album-form-1">
+                                <label>Change Paired Drink</label>
+                                <DrinkOptions
+                                    selected={this.state.album_drink_id}
+                                    albumInfo={this.state}
+                                    drinkValue={this.state.album_drink_id}
+                                    handleChange={this.handleChange}
+                                    name="album_drink_id"
+                                    updateDrinkSelection={this.updateDrinkSelection}
+                                />
+
+                                <DrinkInfoCard
+                                    drinkInfo={this.props}
+                                />
+                            </div>
                         </div>
-
-                        <label>Spotify Album ID:</label>
-                        <input
-                            type="text"
-                            name='spotify_album_id'
-                            onChange={this.handleChange}
-                            defaultValue={this.props.spotify_album_id}
-                        />
-
-                        <label>Change Paired Drink</label>
-                        <DrinkOptions
-                        selected={this.state.album_drink_id}
-                            albumInfo={this.state}
-                            drinkValue={this.state.album_drink_id}
-                            handleChange={this.handleChange}
-                            name="album_drink_id"
-                            updateDrinkSelection={this.updateDrinkSelection}
-                        />
-
-                        <DrinkInfoCard
-                            drinkInfo={this.props}
-                        />
 
                         <div className="submit-buttons">
                             <input id="update" type="submit" value="Update Album" />

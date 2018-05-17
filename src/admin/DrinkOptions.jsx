@@ -38,7 +38,7 @@ class DrinkOptions extends Component {
 
     render() {
         const drinkInfo = this.state.drinksData;
-        var options = drinkInfo.map((drink) => {
+        var options = drinkInfo.sort((a, b) => a.drink_title - b.drink_title).map((drink) => {
             return { value: `${drink.drink_id}`, label: `${drink.drink_title}` }
         });
 

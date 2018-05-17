@@ -17,9 +17,7 @@ class AdminAlbums extends Component {
             .then(albumsDataGrab)
     }
 
-    updateAlbumData(album) {
-        console.log("Admin Album info", album);
-        
+    updateAlbumData = (album) => {        
         let updateUrl = `http://localhost:3000/albums/${album.album_id}`;
         return fetch(updateUrl, {
             method: "PUT",
@@ -81,6 +79,7 @@ class AdminAlbums extends Component {
                         key={data.album_id} {...data}
                         updateAlbumData={this.updateAlbumData}
                         getAlbums={this.getAlbums}
+                        
                     />
                 )
         );
