@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import DrinkOptions from "./DrinkOptions.jsx";
-import DrinkInfoCard from './DrinkInfoCard';
 
 class EditAlbum extends Component {
     constructor() {
         super()
         this.state = {
             ...this.props,
+            allDrinkInfo: null
         };
 
     }
@@ -49,7 +49,6 @@ class EditAlbum extends Component {
 
     updateDrinkSelection = (albumDrinkObject) => {
         const albumDrinkID = parseInt(albumDrinkObject.value)
-        console.log("album Drink ID", albumDrinkID);
         this.setState({ album_drink_id: albumDrinkID })
     }
 
@@ -119,7 +118,7 @@ class EditAlbum extends Component {
                                 <div className="admin-album-cover-container">
                                     <h5>Album Cover Preview:</h5>
                                     <div className="admin-album-image">
-                                    <img src={this.state.album_cover_url} alt={this.props.album_title} height="200px" />
+                                        <img src={this.state.album_cover_url} alt={this.props.album_title} height="200px" />
                                     </div>
                                 </div>
 
@@ -135,23 +134,20 @@ class EditAlbum extends Component {
                             <div className="edit-album-form-1">
                                 <label>Change Paired Drink</label>
                                 <DrinkOptions
+                                    name="album_drink_id"
                                     selected={this.state.album_drink_id}
                                     albumInfo={this.state}
                                     drinkValue={this.state.album_drink_id}
                                     handleChange={this.handleChange}
-                                    name="album_drink_id"
                                     updateDrinkSelection={this.updateDrinkSelection}
                                 />
 
-                                <DrinkInfoCard
-                                    drinkInfo={this.props}
-                                />
                             </div>
                         </div>
 
                         <div className="submit-buttons">
-                            <input id="update" type="submit" value="Update Album" />
-                            {/* <input id="delete" type="submit" value="Delete Album" /> */}
+                            <input id="update-album" type="submit" value="Update Album" />
+                            {/* <input id="delete-album" type="submit" value="Delete Album" /> */}
                         </div>
 
                         <p className="message">{this.state.message}</p>

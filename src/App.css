@@ -148,6 +148,7 @@ select {
   font-family: 'Raleway', sans-serif;
   margin: 10px auto;
   max-width: 80%;
+  min-width: 800px;
   padding: 20px;
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
@@ -220,14 +221,14 @@ select {
 }
 
 .album-detail-card input[type="submit"],
-.drink-detail-card input[type="button"],
-.album-detail-card input[type="submit"],
+.drink-detail-card input[type="submit"],
+.album-detail-card input[type="button"],
 .drink-detail-card input[type="button"] {
   position: relative;
   display: block;
   padding: 19px 39px 18px 39px;
   color: #FFF;
-  margin: 0 auto;
+  margin: auto;
   background: #7226c9;
   font-size: 18px;
   text-align: center;
@@ -245,6 +246,12 @@ select {
   background: #2b0a5f;
 }
 
+.drink-submit-buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+}
+
 .admin-album-image {
   height: 200px;
   width: 200px;
@@ -260,6 +267,8 @@ select {
 
 .admin-drink-info-card {
   background-color: rgb(219, 218, 218);
+  width: 375px;
+  min-width: 200px;
 }
 
 .admin-drink-info-card h1 {

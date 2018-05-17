@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AdminAlbums from "./AdminAlbums.jsx";
 // import AddAlbum from "./AddAlbum.jsx";
-import EditDrinks from "./EditDrinks";
+import AdminDrinks from "./AdminDrinks";
 import AddDrink from "./AddDrink.jsx";
 
 
@@ -20,7 +20,7 @@ class AdminPage extends Component {
             drinksData={this.state.drinksData}
           /> */}
           <h1>Drinks</h1>
-          <EditDrinks
+          <AdminDrinks
           />
           <h1>Add Drink</h1>
           <AddDrink
