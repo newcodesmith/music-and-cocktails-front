@@ -46,6 +46,8 @@ class AlbumAndDrinkPage extends Component {
     }
 
     render() {
+        // console.log("parent state", this.state);
+        
         return (
             <div>
                 <UserAlbumCard

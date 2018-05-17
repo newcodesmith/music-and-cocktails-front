@@ -5,7 +5,7 @@ import EditDrinks from "./EditDrinks";
 import AddDrink from "./AddDrink.jsx";
 
 
-class AdminEvents extends Component {
+class AdminPage extends Component {
 
   render() {
     return (
@@ -31,4 +31,4 @@ class AdminEvents extends Component {
   }
 }
 
-export default AdminEvents;
+export default AdminPage;

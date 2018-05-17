@@ -5,51 +5,45 @@ import SpotifyPlayer from 'react-spotify-player';
 
 class UserAlbumCard extends Component {
     state = {
-        ...this.props,
-        spotifyAlbumData: []
+        // spotifyAlbumData: []
     };
 
-    getSpotifyData() {
-        const albumInfo = this.props.albumData;
-        const accessToken = this.props.accessToken;
-        const userData = this.props.userData;
+    // getSpotifyData() {
+    //     const albumInfo = this.props.albumData;
+    //     const accessToken = this.props.accessToken;
+    //     const userData = this.props.userData;
 
-        const spotifyUrl = `https://api.spotify.com/v1/albums/42oBdomfxF0DbKKMEqrnQW?market=US}`;
-        console.log(spotifyUrl);
+    //     const spotifyUrl = `https://api.spotify.com/v1/albums/"42oBdomfxF0DbKKMEqrnQW?market=US}`;
+    //     let spotifyDataGrab = response => {
+    //         this.setState({ spotifyAlbumData: response });
+    //     };
+    //     fetch(spotifyUrl, {
+    //       headers: {"Authorization": "Bearer " + accessToken}
+    //     })
+    //     .then(response => {
+    //       return response.json()
+    //     })
+    //     .then(response => response.json())
+    //     .then(spotifyDataGrab)
+    //     .catch(err => console.error(err));
+    // }
 
+    // componentDidMount() {
+    //     const userData = this.props.userData;
 
-        let spotifyDataGrab = response => {
-            this.setState({ spotifyAlbumData: response });
-        };
-        return fetch(spotifyUrl, {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
-            }
-        })
-            .then(response => response.json())
-            .then(spotifyDataGrab)
-            .catch(err => console.error(err));
-    };
-
-    componentDidMount() {
-        this.getSpotifyData();
-    }
+    //     if(this.props.Object.keys(userData).length === 0){
+    //         return
+    //     } 
+    //     const newState = {
+    //         ...this.state,
+    //         ...this.props
+    //     }
+    //     this.setState(newState)
+    //     this.getSpotifyData();
+    // }
 
     render() {
         const albumInfo = this.props.albumData;
-
-
-        // if (albumInfo.length > 1) {
-        // } else {
-        //     this.setState(...this.props)
-        //     this.getSpotifyData();
-        //     console.log("did this run?");
-
-        // }
-
 
         const size = {
             width: '50%',
@@ -61,15 +55,15 @@ class UserAlbumCard extends Component {
         return (
             <div>
                 <h1>{albumInfo.genre}</h1>
-                <div className="album-cover-info ">
-                    <div className="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div className="album-cover-info">
+                    <div className="flip-container">
                         <div className="flipper">
                             <div className={`front front-${albumInfo.album_id}`}>
                                 <h1>{albumInfo.artist}:</h1>
                                 <h1>{albumInfo.album_title}</h1>
                             </div>
                             <div className={`back back-${albumInfo.album_id}`}>
-                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music7/v4/23/ab/8a/23ab8ab2-a0d4-d824-7b0d-5532df236f12/UMG_cvrart_00602547305732_01_RGB72_1500x1500_13UABIM03512.jpg/1200x630bb.jpg" alt={albumInfo.album_title} />
+                                <img src={albumInfo.album_cover_url} alt={albumInfo.album_title} />
                             </div>
                         </div>
                     </div>

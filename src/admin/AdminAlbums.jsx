@@ -4,11 +4,10 @@ import EditAlbum from "./EditAlbum.jsx"
 class AdminAlbums extends Component {
 
     state = {
-        message: "",
         albumsData: []
     };
 
-    getAlbums() {
+    getAlbums = () => {
         const albumsUrl = "http://localhost:3000/albums";
         let albumsDataGrab = response => {
             this.setState({ albumsData: response });
@@ -18,18 +17,9 @@ class AdminAlbums extends Component {
             .then(albumsDataGrab)
     }
 
-    getFormData(e) {
-        return {
-            genre: this.genre.value,
-            artist: this.artist.value,
-            album_title: this.album_title.value,
-            album_info: this.album_info.value,
-            spotify_album_id: this.spotify_album_id.value,
-            album_drink_id: this.album_drink_id.value,
-        };
-    }
-
     updateAlbumData(album) {
+        console.log("Admin Album info", album);
+        
         let updateUrl = `http://localhost:3000/albums/${album.album_id}`;
         return fetch(updateUrl, {
             method: "PUT",
@@ -43,18 +33,18 @@ class AdminAlbums extends Component {
             .catch(err => console.error(err));
     }
 
-    deleteAlbumData(theId) {
-        let thisId = theId;
-        let deleteUrl = `http://localhost:3000/albums/${thisId}`;
+    // deleteAlbumData(theId) {
+    //     let thisId = theId;
+    //     let deleteUrl = `http://localhost:3000/albums/${thisId}`;
 
-        return fetch(deleteUrl, {
-            method: "DELETE",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            }
-        }).catch(err => console.log(err));
-    }
+    //     return fetch(deleteUrl, {
+    //         method: "DELETE",
+    //         headers: {
+    //             Accept: "application/json",
+    //             "Content-Type": "application/json"
+    //         }
+    //     }).catch(err => console.log(err));
+    // }
 
     // _onClick = (e) => {
     //     e.preventDefault();
@@ -89,7 +79,8 @@ class AdminAlbums extends Component {
                 .map(data =>
                     <EditAlbum
                         key={data.album_id} {...data}
-                        saveAlbum={this.updateAlbumData}
+                        updateAlbumData={this.updateAlbumData}
+                        getAlbums={this.getAlbums}
                     />
                 )
         );

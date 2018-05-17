@@ -57,7 +57,7 @@
 
 /* flip speed goes here */
 .flipper {
-	transition: 0.6s;
+	transition: 0.4s;
 	transform-style: preserve-3d;
 
 	position: relative;
@@ -76,7 +76,8 @@
 .front {
 	z-index: 2;
 	/* for firefox 31 */
-	transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  border: 1px solid black;
 }
 
 /* back, initially hidden pane */

@@ -24,7 +24,7 @@ class DrinkOptions extends Component {
     }
 
     updateState(element) {
-        this.setState({ drinkValue: element });
+        this.setState({ drinkValue: parseInt(element.value) });
     }
 
     componentDidMount() {
@@ -38,20 +38,18 @@ class DrinkOptions extends Component {
 
     render() {
         const drinkInfo = this.state.drinksData;
-        const albumInfo = this.props.albumInfo;
         var options = drinkInfo.map((drink) => {
             return { value: `${drink.drink_id}`, label: `${drink.drink_title}` }
         });
 
-        console.log(options);
-
 
         return (
             <Select
-                name="drink-selection"
-                value={this.state.drinkValue}
+                name="album_drink_id"
+                value={this.props.drinkValue}
                 options={options}
                 onChange={this.updateState.bind(this)}
+                onChange={this.props.updateDrinkSelection}
             />
         )
     }

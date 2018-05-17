@@ -6,6 +6,14 @@ class EditAlbum extends Component {
     constructor() {
         super()
         this.state = {
+            album_id: null,
+            genre: null,
+            artist: null,
+            album_title: null,
+            album_info: null,
+            album_cover_url: null,
+            spotify_album_id: null,
+            album_drink_id: null,
             ...this.props,
         };
 
@@ -20,12 +28,41 @@ class EditAlbum extends Component {
     }
 
     handleChange = (event) => {
+        // console.log("the event", event);
         this.setState({ [event.target.name]: event.target.value });
-        // console.log("changeState", this.state);
 
     }
-    handleSave = () => {
-        this.props.saveAlbum(this.state)
+
+    handleSave = (e) => {
+        e.preventDefault();
+        const updatedAlbumInfo = {
+            album_id: this.state.album_id,
+            genre: this.state.genre,
+            artist: this.state.artist,
+            album_title: this.state.album_title,
+            album_info: this.state.album_info,
+            album_cover_url: this.state.album_cover_url,
+            spotify_album_id: this.state.spotify_album_id,
+            album_drink_id: this.state.album_drink_id,
+        }
+
+        this.props.updateAlbumData(updatedAlbumInfo)
+            .then(() => this.props.getAlbums())
+            .then(response => {
+                this.setState({ message: "Your album was updated" })
+                setTimeout(() => {
+                    this.setState({ message: "" })
+                }, 4000);
+            })
+
+        console.log("this is the submitted state", this.state);
+
+    }
+
+    updateDrinkSelection = (albumDrinkObject) => {
+    const albumDrinkID = parseInt(albumDrinkObject.value)
+    console.log("album Drink ID", albumDrinkID);
+        this.setState({album_drink_id: albumDrinkID})
     }
 
     render() {
@@ -69,7 +106,6 @@ class EditAlbum extends Component {
                             name='album_title'
                             onChange={this.handleChange}
                             defaultValue={this.props.album_title}
-
                         />
 
                         <label>Album Info:</label>
@@ -78,8 +114,20 @@ class EditAlbum extends Component {
                             name='album_info'
                             onChange={this.handleChange}
                             defaultValue={this.props.album_info}
-
                         />
+
+                        <label>Album Cover URL:</label>
+                        <textarea
+                            type="text"
+                            name='album_cover_url'
+                            onChange={this.handleChange}
+                            defaultValue={this.props.album_cover_url}
+                        />
+
+                        <div>
+                            <label>Current Album Cover:</label>
+                            <img src={this.props.album_cover_url} alt={this.props.album_title} height="200px" />
+                        </div>
 
                         <label>Spotify Album ID:</label>
                         <input
@@ -87,18 +135,20 @@ class EditAlbum extends Component {
                             name='spotify_album_id'
                             onChange={this.handleChange}
                             defaultValue={this.props.spotify_album_id}
-
                         />
 
                         <label>Change Paired Drink</label>
                         <DrinkOptions
+                        selected={this.state.album_drink_id}
                             albumInfo={this.state}
-                            drinkValue={this.props.album_drink_id}
-                            onChange={this.handleChange}
+                            drinkValue={this.state.album_drink_id}
+                            handleChange={this.handleChange}
+                            name="album_drink_id"
+                            updateDrinkSelection={this.updateDrinkSelection}
                         />
 
                         <DrinkInfoCard
-                            drinkInfo={this.props}                            
+                            drinkInfo={this.props}
                         />
 
                         <div className="submit-buttons">
