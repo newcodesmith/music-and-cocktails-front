@@ -1,7 +1,13 @@
 .nav-bar {
-  background-color: rgb(53, 27, 6);
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: row;
+  height: 5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(92, 92, 92, 0.301), 0 8px 16px rgba(80, 80, 80, 0.432);
 }
 
 .nav-bar ul {
@@ -105,6 +111,25 @@
 
 .back-1 {}
 
+.admin-title {
+  position: relative;
+  text-align: left;
+}
+
+.admin-title h1 {
+  border: 2px solid rgb(134, 51, 243);
+  color: rgb(255, 255, 255);
+  font-size: 58px;
+  margin: 30px;
+  padding: .5rem;
+  position: absolute;
+  top: 12rem;
+  left: 17rem;
+  transform: translate(-40%, -80%);
+  width: 600px;
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.37), 0 8px 16px rgba(0, 0, 0, 0.603);
+}
+
 .edit-album-form-layout {
   display: flex;
   flex-direction: row;
@@ -143,7 +168,6 @@ select {
 .admin-drink-info-card {
   background-color: #f1f1f1;
   border: 1.5px solid #7222a7;
-  border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
   font-family: 'Raleway', sans-serif;
   margin: 10px auto;
@@ -158,6 +182,10 @@ select {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+.album-detail-card h1,
+.drink-detail-card h1 {
+  font-size: 2rem;
+}
 
 .album-detail-card input[type="text"],
 .drink-detail-card input[type="text"],
@@ -204,12 +232,31 @@ select {
   height: 35px;
 }
 
+.admin-buttons {
+  position: relative;
+  display: block;
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  margin: auto;
+  background: #7226c9;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  font-family: 'Raleway', sans-serif;
+  width: 10rem;
+  border: 1px solid #3c0e5a;
+  margin: 20px;
+}
+
+.admin-buttons:hover {
+  background: #561592;
+}
+
 .album-detail-card input[type="submit"],
 .drink-detail-card input[type="submit"],
 .album-detail-card input[type="button"],
 .drink-detail-card input[type="button"],
-.drink-detail-card input[type="reset"]
-{
+.drink-detail-card input[type="reset"] {
   position: relative;
   display: block;
   padding: 19px 39px 18px 39px;
@@ -249,8 +296,6 @@ select {
   margin: auto;
   width: 50%;
 }
-
-
 
 .admin-album-image,
 .admin-drink-image {

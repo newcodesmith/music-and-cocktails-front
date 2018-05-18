@@ -56,7 +56,7 @@ class EditAlbum extends Component {
     render() {
         return (
             <div className="album-detail-card" >
-                <h1>{this.props.genre} Album</h1>
+                <h1>Update {this.props.genre} Album</h1>
                 <div className="album-detail-card-form">
                     <form
                         className="album-input"
