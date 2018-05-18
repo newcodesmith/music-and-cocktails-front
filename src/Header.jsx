@@ -5,15 +5,13 @@ class Header extends Component {
         return (
             <div className="nav-bar">
                 <div className="nav-logo">
-                    <p>Music + Cocktails</p>
+                    <img src="./glass.png" alt=""/>
                 </div>
-                <nav>
+                <h1>Music + Cocktails</h1>
+                <nav id="nav-buttons">
                     <ul>
-                        <li><a>Home</a></li>
-                        <li><a>About</a></li>
-                        <div onClick={() => window.location = "/"} id="header-signout">
-                            <li>Log Out</li>
-                        </div>
+                        <li onClick={() => window.location = "/home"}>Home</li>
+                        <li onClick={() => window.location = "/"}>Log Out</li>
                     </ul>
 
                 </nav>

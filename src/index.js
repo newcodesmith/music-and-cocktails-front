@@ -8,6 +8,7 @@ import SplashPage from './SplashPage.jsx'
 import Home from './Home.jsx';
 import AdminPage from './admin/AdminPage';
 import AlbumAndDrinkPage from './AlbumAndDrinkPage';
+import Footer from './Footer.jsx';
 
 ReactDOM.render(
     <Router>
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route exact path="/Folk-Country" component={AlbumAndDrinkPage} />
             <Route exact path="/Rap" component={AlbumAndDrinkPage} />
             <Route exact path="/admin" component={AdminPage} />
+            <Footer />
         </div>
     </Router>,
 

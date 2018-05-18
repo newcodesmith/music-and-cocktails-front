@@ -20,15 +20,15 @@ class AdminPage extends Component {
   render() {
 
     return (
-      <div>
+      <div id="admin-page">
 
         <div className="admin-title">
           <Parallax
             bgImage={require('./admin-title-image.jpg')}
             bgImageAlt="turntable"
-            strength={-100}
+            strength={-150}
           >
-            <div style={{ height: '300px' }} />
+            <div style={{ height: '400px' }} />
           </Parallax>
           <h1>
             <ToggleDisplay show={!this.state.show}>
@@ -42,7 +42,8 @@ class AdminPage extends Component {
         </div>
 
         <div>
-          <div className="admin-buttons" onClick={() => this.handleClick()}>
+
+          <div className="buttons" onClick={() => this.handleClick()}>
             <ToggleDisplay show={!this.state.show}>
               Edit Drinks
           </ToggleDisplay>

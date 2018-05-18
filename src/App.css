@@ -7,33 +7,49 @@
   top: 0;
   width: 100%;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(92, 92, 92, 0.301), 0 8px 16px rgba(80, 80, 80, 0.432);
+  box-shadow: 0 4px 12px rgba(31, 31, 31, 0.301), 0 8px 16px rgba(43, 43, 43, 0.432);
 }
 
-.nav-bar ul {
+.nav-bar h1 {
+  color: white;
+  font-size: 3rem;
+  margin: .8rem auto 0 1rem;
+  font-family: 'Unica One', cursive;
+}
+
+#nav-buttons ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  text-align: right;
 }
 
-.nav-bar li {
-  color: #f1f1f1;
-}
-
-.nav-bar li a {
-  display: block;
-  color: white;
+#nav-buttons li {
+  color: #f1f1f1a8;
   text-align: center;
-  padding: 14px 16px;
+  padding: .5rem;
   text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  width: 5rem;
+  margin-top: .4rem;
+  margin-right: 1rem;
+}
+
+#nav-buttons li:hover {
+  text-decoration: underline;
+  color: #f1f1f1;
+
 }
 
 .nav-logo {
   border: .1rem solid rgb(255, 255, 255);
   display: inline-block;
+  width: 4.8rem;
+  height: 4.8rem;
+  /* background-color: rgba(0, 0, 0, 0.85); */
+  margin-left: 1rem;
 }
 
 .nav-logo p {
@@ -42,6 +58,17 @@
   color: #f1f1f1;
 }
 
+.splash-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
 .about-album {
   height: 400px;
   float: right;
@@ -111,6 +138,10 @@
 
 .back-1 {}
 
+#admin-page {
+  margin-bottom: 4rem; 
+}
+
 .admin-title {
   position: relative;
   text-align: left;
@@ -119,15 +150,15 @@
 .admin-title h1 {
   border: 2px solid rgb(134, 51, 243);
   color: rgb(255, 255, 255);
-  font-size: 58px;
+  font-size: 50px;
   margin: 30px;
   padding: .5rem;
   position: absolute;
-  top: 12rem;
-  left: 17rem;
+  top: 20rem;
+  left: 70%;
   transform: translate(-40%, -80%);
-  width: 600px;
-  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.37), 0 8px 16px rgba(0, 0, 0, 0.603);
+  width: 495px;
+  text-shadow: 0 8px 16px rgba(65, 65, 65, 0.37), 0 8px 16px rgba(26, 26, 26, 0.603);
 }
 
 .edit-album-form-layout {
@@ -232,7 +263,7 @@ select {
   height: 35px;
 }
 
-.admin-buttons {
+.buttons {
   position: relative;
   display: block;
   padding: 19px 39px 18px 39px;
@@ -248,9 +279,10 @@ select {
   margin: 20px;
 }
 
-.admin-buttons:hover {
+.buttons:hover {
   background: #561592;
 }
+
 
 .album-detail-card input[type="submit"],
 .drink-detail-card input[type="submit"],
@@ -297,7 +329,13 @@ select {
   width: 50%;
 }
 
-.admin-album-image,
+.admin-album-image {
+  max-height: 200px;
+  min-width: 150px;
+  border: 1px solid black;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);
+}
+
 .admin-drink-image {
   max-height: 225px;
   min-height: 220px;
@@ -333,4 +371,49 @@ select {
 
 .admin-drink-info li {
   margin-bottom: 1rem;
+}
+
+#footer {
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(31, 31, 31, 0.301), 0 8px 16px rgba(43, 43, 43, 0.432);
+}
+
+#footer h1 {
+  color: white;
+  font-size: 1rem;
+  margin: .3rem auto 0 1rem;
+}
+
+#footer-buttons ul {
+  list-style-type: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  margin: 0;
+}
+
+#footer-buttons li {
+  color: #f1f1f1a8;
+  text-align: center;
+  padding: .5rem;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  width: 5rem;
+  margin-right: 1rem;
+}
+
+#footer-buttons li:hover {
+  text-decoration: underline;
+  color: #f1f1f1;
+
 }
