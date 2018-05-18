@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EditDrink from "./EditDrink.jsx"
 
+
 class AdminDrinks extends Component {
 
     state = {
@@ -17,7 +18,7 @@ class AdminDrinks extends Component {
             .then(drinksDataGrab)
     }
 
-    updateDrinkData = (drink) => {        
+    updateDrinkData = (drink) => {
         let updateUrl = `http://localhost:3000/drinks/${drink.drink_id}`;
         return fetch(updateUrl, {
             method: "PUT",
@@ -31,9 +32,9 @@ class AdminDrinks extends Component {
             .catch(err => console.error(err));
     }
 
-    deleteDrinkData = (theId) => {
-        let thisId = theId;
-        let deleteUrl = `http://localhost:3000/drinks/${thisId}`;
+    deleteDrinkData = (drinkId) => {
+        let id = drinkId;
+        let deleteUrl = `http://localhost:3000/drinks/${id}`;
 
         return fetch(deleteUrl, {
             method: "DELETE",
@@ -41,7 +42,22 @@ class AdminDrinks extends Component {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             }
-        }).catch(err => console.log(err));
+        })
+            .catch(err => console.log(err));
+    }
+
+    addDrinkData = (drink) => {
+        let updateUrl = "http://localhost:3000/drinks";
+        return fetch(updateUrl, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(drink)
+        })
+            .then(response => response.json())
+            .catch(err => console.error(err));
     }
 
     componentDidMount() {
@@ -52,15 +68,13 @@ class AdminDrinks extends Component {
         const drinkInfo = this.state.drinksData;
 
         return (
-
             drinkInfo.sort((a, b) => a.drink_id - b.drink_id)
                 .map(data =>
                     <EditDrink
                         key={data.drink_id} {...data}
-                        updateDrinkData={this.updateDrinkData}
                         getDrinks={this.getDrinks}
+                        updateDrinkData={this.updateDrinkData}
                         deleteDrinkData={this.deleteDrinkData}
-                        
                     />
                 )
         );

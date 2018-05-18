@@ -35,6 +35,7 @@ class EditAlbum extends Component {
             album_cover_url: this.state.album_cover_url,
             spotify_album_id: this.state.spotify_album_id,
             album_drink_id: this.state.album_drink_id,
+            accent_color: this.state.accent_color
         }
 
         this.props.updateAlbumData(updatedAlbumInfo)
@@ -143,11 +144,11 @@ class EditAlbum extends Component {
                                 />
 
                             </div>
+
                         </div>
 
                         <div className="submit-buttons">
                             <input id="update-album" type="submit" value="Update Album" />
-                            {/* <input id="delete-album" type="submit" value="Delete Album" /> */}
                         </div>
 
                         <p className="message">{this.state.message}</p>

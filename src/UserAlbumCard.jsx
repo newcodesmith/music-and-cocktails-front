@@ -4,43 +4,6 @@ import './App.css';
 import SpotifyPlayer from 'react-spotify-player';
 
 class UserAlbumCard extends Component {
-    state = {
-        // spotifyAlbumData: []
-    };
-
-    // getSpotifyData() {
-    //     const albumInfo = this.props.albumData;
-    //     const accessToken = this.props.accessToken;
-    //     const userData = this.props.userData;
-
-    //     const spotifyUrl = `https://api.spotify.com/v1/albums/"42oBdomfxF0DbKKMEqrnQW?market=US}`;
-    //     let spotifyDataGrab = response => {
-    //         this.setState({ spotifyAlbumData: response });
-    //     };
-    //     fetch(spotifyUrl, {
-    //       headers: {"Authorization": "Bearer " + accessToken}
-    //     })
-    //     .then(response => {
-    //       return response.json()
-    //     })
-    //     .then(response => response.json())
-    //     .then(spotifyDataGrab)
-    //     .catch(err => console.error(err));
-    // }
-
-    // componentDidMount() {
-    //     const userData = this.props.userData;
-
-    //     if(this.props.Object.keys(userData).length === 0){
-    //         return
-    //     } 
-    //     const newState = {
-    //         ...this.state,
-    //         ...this.props
-    //     }
-    //     this.setState(newState)
-    //     this.getSpotifyData();
-    // }
 
     render() {
         const albumInfo = this.props.albumData;

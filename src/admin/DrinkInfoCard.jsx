@@ -17,7 +17,7 @@ class DrinkInfoCard extends Component {
                 <h3>{singleDrink && singleDrink.drink_title}</h3>
                 <div className="admin-drink-info">
                     <div className="">
-                        <img src={singleDrink && singleDrink.drink_pic_url} alt={singleDrink && singleDrink.drink_title} height="150" />
+                        <img className="admin-drink-image" src={singleDrink && singleDrink.drink_pic_url} alt={singleDrink && singleDrink.drink_title} height="150" />
                     </div>
                     <div className="">
                         <ul>
@@ -29,8 +29,6 @@ class DrinkInfoCard extends Component {
                 </div>
             </div>
         )
-        // }
-        // }
     }
 }
 

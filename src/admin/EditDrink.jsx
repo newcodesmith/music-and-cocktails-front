@@ -20,11 +20,10 @@ class EditDrink extends Component {
 
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
-
     }
 
-    handleSave = (e) => {
-        e.preventDefault();
+    handleSave = (event) => {
+        event.preventDefault();
         const updatedDrinkInfo = {
             drink_id: this.state.drink_id,
             drink_title: this.state.drink_title,
@@ -33,22 +32,21 @@ class EditDrink extends Component {
             direction: this.state.direction,
             drink_pic_url: this.state.drink_pic_url
         }
-        console.log(e.target.id);
-        
-        if (e.target.id === "update-drink") {
-            this.props.updateDrinkData(updatedDrinkInfo)
-                .then(() => this.props.getDrinks())
-                .then(response => {
-                    this.setState({ message: "Your drink was updated" })
-                    setTimeout(() => {
-                        this.setState({ message: "" })
-                    }, 4000);
-                })
-        } else if (e.target.id === "delete-drink") {
-            let drinkId = this.state.drink_id;
-            this.props.deleteDrinkData(drinkId)
-                .then(() => this.props.getDrinks());
-        }
+        this.props.updateDrinkData(updatedDrinkInfo)
+            .then(() => this.props.getDrinks())
+            .then(response => {
+                this.setState({ message: "Your drink was updated" })
+                setTimeout(() => {
+                    this.setState({ message: "" })
+                }, 4000);
+            })
+    }
+
+    handleDelete = (event) => {
+        event.preventDefault();
+        let drinkId = this.state.drink_id;
+        this.props.deleteDrinkData(drinkId)
+            .then(() => this.props.getDrinks());
     }
 
     render() {
@@ -118,12 +116,12 @@ class EditDrink extends Component {
 
                         <div>
                             <h3>Drink Picture Preview</h3>
-                            <img src={this.state.drink_pic_url} alt={this.props.drink_title} height="250" />
+                            <img className="admin-drink-image" src={this.state.drink_pic_url} alt={this.props.drink_title} height="250" />
                         </div>
 
                         <div className="drink-submit-buttons">
-                            <input name="update-drink" type="submit" value="Update Drink" />
-                            <input name="delete-drink" type="submit" value="Delete Drink" />
+                            <input name="update-drink" type="submit" onClick={this.handleSave.bind(this)} value="Update Drink" />
+                            <input name="delete-drink" type="submit" onClick={this.handleDelete.bind(this)} value="Delete Drink" />
                         </div>
                         <p className="message">{this.state.message}</p>
 

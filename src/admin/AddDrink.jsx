@@ -1,111 +1,105 @@
 import React, { Component } from "react";
 
 class AddDrink extends Component {
-
-    state = { message: "" };
-
     constructor() {
         super();
-        this._onClick = this._onClick.bind(this);
-    }
-
-    getFormData(e) {
-        return {
-            drink_title: this.drink_title.value,
-            drink_description: this.drink_description.value,
-            ingredients: this.ingredients.value,
-            direction: this.direction.value,
-            drink_pic_url: this.drink_pic_url.value,
+        this.state = {
+            message: "",
+            drink_title: null,
+            drink_description: null,
+            ingredients: null,
+            direction: null,
+            drink_pic_url: null
         };
     }
 
-    postFormData() {
-        const postUrl = "http://localhost:3000/drinks";
-        let myData = JSON.stringify(this.getFormData());
-        console.log(myData);
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+    }
 
-        fetch(postUrl, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: myData
-        })
-            .then(response => response.json())
+    handleSave = (event) => {
+        event.preventDefault();
+        const DrinkInfo = {
+            drink_id: this.state.drink_id,
+            drink_title: this.state.drink_title,
+            drink_description: this.state.drink_description,
+            ingredients: this.state.ingredients,
+            direction: this.state.direction,
+            drink_pic_url: this.state.drink_pic_url
+        }
+        this.props.addDrinkData(DrinkInfo)
+            .then(() => this.props.getDrinks())
             .then(response => {
                 this.setState({ message: "Your drink was submitted" })
                 setTimeout(() => {
                     this.setState({ message: "" })
                 }, 4000);
             })
-            .catch(err => console.log(err));
-        document.querySelector(".drink-input").reset();
+
     }
 
-    _onClick(e) {
-        if (e.target.id === "add-drink") {
-            this.getFormData();
-        }
-    }
-
-    onSubmit(e) {
-        e.preventDefault();
-        this.postFormData();
-    }
 
     render() {
         return (
-            <div className="drink-detail-card" >
+            <div className="drink-detail-card">
+                <h1>Add Drink</h1>
                 <div className="drink-detail-card-form">
-                    <h1>Add Drink</h1>
                     <form
                         className="drink-input"
-                        onClick={this._onClick}
-                        onSubmit={e => this.onSubmit(e)}
+                        onSubmit={this.handleSave}
                     >
 
                         <label>Drink Title:</label>
                         <input
-                            id="drink_title"
+                            name="drink_title"
+                            className="drink_title"
                             type="text"
-                            ref={input => (this.drink_title = input)}
+                            onChange={this.handleChange}
                         />
 
                         <label>Drink Description:</label>
                         <textarea
-                            id="drink_description"
+                            className="drink_description"
                             type="text"
-                            ref={input => (this.drink_description = input)}
+                            name="drink_description"
+                            onChange={this.handleChange}
                         />
 
                         <label>Ingredients:</label>
                         <textarea
-                            id="ingredients"
+                            className="ingredients"
                             type="text"
-                            ref={input => (this.ingredients = input)}
+                            name="ingredients"
+                            onChange={this.handleChange}
                         />
 
                         <label>Direction</label>
                         <textarea
-                            id="direction"
+                            className="direction"
                             type="text"
-                            ref={input => (this.direction = input)}
+                            name="direction"
+                            onChange={this.handleChange}
                         />
 
                         <label>Drink Pic URL</label>
                         <input
-                            id="drink_pic_url"
+                            className="drink_pic_url"
                             type="text"
-                            ref={input => (this.drink_pic_url = input)}
+                            name="drink_pic_url"
+                            onChange={this.handleChange}
                         />
 
-                        <div className="submit-buttons">
-                        <input id="add-drink" type="submit" value="Add Drink" />
-                        <input type="reset" value="Clear Form" />
-                        <p className="message">{this.state.message}</p>
+                        <div>
+                            <h3>Drink Picture Preview</h3>
+                            <img className="admin-drink-image" src={this.state.drink_pic_url} alt={this.state.drink_title} height="250" />
                         </div>
-                        
+
+                        <div className="drink-submit-buttons">
+                            <input id="add-drink" type="submit" value="Add Drink" />
+                            <input type="reset" value="Clear Form" />
+                            <p className="message">{this.state.message}</p>
+                        </div>
+
                     </form>
                 </div>
             </div>

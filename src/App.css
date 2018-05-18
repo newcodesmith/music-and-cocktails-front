@@ -158,10 +158,6 @@ select {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.album-detail-card fieldset,
-.drink-detail-card fieldset {
-  border: none;
-}
 
 .album-detail-card input[type="text"],
 .drink-detail-card input[type="text"],
@@ -189,16 +185,6 @@ select {
   margin-bottom: 30px;
 }
 
-.album-detail-card input[type="text"] :focus,
-.drink-detail-card input[type="text"] :focus,
-.album-detail-card input[type="url"] :focus,
-.drink-detail-card input[type="url"] :focus,
-.album-detail-card textarea :focus,
-.drink-detail-card textarea :focus,
-.Select-control :focus {
-  background: #cccccc;
-}
-
 .admin-album-cover-container {
   margin-bottom: 3rem;
   width: 200px;
@@ -223,7 +209,9 @@ select {
 .album-detail-card input[type="submit"],
 .drink-detail-card input[type="submit"],
 .album-detail-card input[type="button"],
-.drink-detail-card input[type="button"] {
+.drink-detail-card input[type="button"],
+.drink-detail-card input[type="reset"]
+{
   position: relative;
   display: block;
   padding: 19px 39px 18px 39px;
@@ -239,11 +227,12 @@ select {
   margin-bottom: 10px;
 }
 
-.album-detail-card input[type="submit"] :hover,
-.drink-detail-card input[type="button"] :hover,
-.album-detail-card input[type="submit"] :hover,
-.drink-detail-card input[type="button"] :hover {
-  background: #2b0a5f;
+.album-detail-card input[type="submit"]:hover,
+.drink-detail-card input[type="button"]:hover,
+.album-detail-card input[type="submit"]:hover,
+.drink-detail-card input[type="button"]:hover,
+.drink-detail-card input[type="reset"]:hover {
+  background: #561592;
 }
 
 .drink-submit-buttons {
@@ -252,9 +241,10 @@ select {
   margin: 2rem;
 }
 
-.admin-album-image {
+.admin-album-image,
+.admin-drink-image {
   height: 200px;
-  width: 200px;
+  min-width: 150px;
   border: 1px solid black;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);
 }

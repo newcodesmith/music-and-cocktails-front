@@ -21,8 +21,7 @@ ReactDOM.render(
             <Route exact path="/Jazz" component={AlbumAndDrinkPage} />
             <Route exact path="/Folk-Country" component={AlbumAndDrinkPage} />
             <Route exact path="/Rap" component={AlbumAndDrinkPage} />
-
-            <Route path="/admin" component={AdminPage} />
+            <Route exact path="/admin" component={AdminPage} />
         </div>
     </Router>,
 
