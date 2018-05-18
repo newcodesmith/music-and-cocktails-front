@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import EditDrink from "./EditDrink.jsx"
+import EditDrink from "./EditDrink.jsx";
+import AddDrink from "./AddDrink.jsx"
 
 
 class AdminDrinks extends Component {
@@ -19,6 +20,8 @@ class AdminDrinks extends Component {
     }
 
     updateDrinkData = (drink) => {
+        console.log(drink);
+
         let updateUrl = `http://localhost:3000/drinks/${drink.drink_id}`;
         return fetch(updateUrl, {
             method: "PUT",
@@ -68,16 +71,23 @@ class AdminDrinks extends Component {
         const drinkInfo = this.state.drinksData;
 
         return (
-            drinkInfo.sort((a, b) => a.drink_id - b.drink_id)
-                .map(data =>
-                    <EditDrink
-                        key={data.drink_id} {...data}
-                        getDrinks={this.getDrinks}
-                        updateDrinkData={this.updateDrinkData}
-                        deleteDrinkData={this.deleteDrinkData}
-                    />
-                )
-        );
+            <div>
+                <AddDrink
+                    getDrinks={this.getDrinks}
+                    addDrinkData={this.addDrinkData}
+                />
+                {drinkInfo.sort((a, b) => a.drink_id - b.drink_id)
+                    .map(drink =>
+                        <EditDrink
+                            key={drink.drink_id} {...drink}
+                            drinksData={this.state.drinksData}
+                            getDrinks={this.getDrinks}
+                            updateDrinkData={this.updateDrinkData}
+                            deleteDrinkData={this.deleteDrinkData}
+                        />
+                    )}
+            </div>
+        )
     }
 }
 

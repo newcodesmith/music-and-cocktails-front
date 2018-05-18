@@ -9,22 +9,18 @@ class AdminPage extends Component {
   render() {
     return (
       <div>
-        <h1 className="admin-heading">Admin Panel</h1>
         <div>
-
-          <h1>Albums</h1>
-          <AdminAlbums
-          />
-
-          <h1>Drinks</h1>
-          <AdminDrinks
-          />
-
-          <h1>Add Drink</h1>
-          <AddDrink
-          />
-
+          <h1 className="admin-heading">Admin Panel</h1>
         </div>
+
+        <h1>Albums</h1>
+        <AdminAlbums
+        />
+
+        <h1>Drinks</h1>
+        <AdminDrinks
+        />
+
       </div>
     );
   }

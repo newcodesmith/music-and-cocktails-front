@@ -5,7 +5,6 @@ class EditDrink extends Component {
         super()
         this.state = {
             ...this.props,
-            allDrinkInfo: null
         };
 
     }
@@ -51,6 +50,7 @@ class EditDrink extends Component {
 
     render() {
         return (
+
             <div className="drink-detail-card">
                 <h1>Update Drink</h1>
                 <div className="drink-detail-card-form">
@@ -116,13 +116,14 @@ class EditDrink extends Component {
 
                         <div>
                             <h3>Drink Picture Preview</h3>
-                            <img className="admin-drink-image" src={this.state.drink_pic_url} alt={this.props.drink_title} height="250" />
+                            <img className="admin-drink-image" src={this.props.drink_pic_url} alt={this.props.drink_title} height="250" />
                         </div>
 
                         <div className="drink-submit-buttons">
-                            <input name="update-drink" type="submit" onClick={this.handleSave.bind(this)} value="Update Drink" />
-                            <input name="delete-drink" type="submit" onClick={this.handleDelete.bind(this)} value="Delete Drink" />
+                                <input name="update-drink" type="submit" onClick={this.handleSave.bind(this)} value="Update Drink" />
+                                <input name="delete-drink" type="submit" onClick={this.handleDelete.bind(this)} value="Delete Drink" />
                         </div>
+                        <p className="button-delete-message">**In order to delete a drink, this drink cannot be assigned to an album. First remove drink from album then delete.**</p>
                         <p className="message">{this.state.message}</p>
 
                     </form>

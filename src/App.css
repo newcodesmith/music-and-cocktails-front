@@ -199,8 +199,6 @@ select {
   width: 100%;
 }
 
-
-
 .Select-control {
   -webkit-appearance: menulist-button;
   height: 35px;
@@ -241,9 +239,23 @@ select {
   margin: 2rem;
 }
 
+.button-delete-message {
+  border: 1px solid rgb(216, 8, 8);
+  color: rgb(216, 8, 8);
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  font-family: 'Raleway', sans-serif;
+  margin: auto;
+  width: 50%;
+}
+
+
+
 .admin-album-image,
 .admin-drink-image {
-  height: 200px;
+  max-height: 225px;
+  min-height: 220px;
   min-width: 150px;
   border: 1px solid black;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);

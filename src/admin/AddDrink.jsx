@@ -19,6 +19,7 @@ class AddDrink extends Component {
 
     handleSave = (event) => {
         event.preventDefault();
+        event.target.reset();
         const DrinkInfo = {
             drink_id: this.state.drink_id,
             drink_title: this.state.drink_title,
@@ -30,7 +31,14 @@ class AddDrink extends Component {
         this.props.addDrinkData(DrinkInfo)
             .then(() => this.props.getDrinks())
             .then(response => {
-                this.setState({ message: "Your drink was submitted" })
+                this.setState({
+                    message: "Your drink was submitted",
+                    drink_title: null,
+                    drink_description: null,
+                    ingredients: null,
+                    direction: null,
+                    drink_pic_url: null
+                })
                 setTimeout(() => {
                     this.setState({ message: "" })
                 }, 4000);
@@ -45,6 +53,7 @@ class AddDrink extends Component {
                 <h1>Add Drink</h1>
                 <div className="drink-detail-card-form">
                     <form
+                        id="add-drink-form"
                         className="drink-input"
                         onSubmit={this.handleSave}
                     >
@@ -91,7 +100,7 @@ class AddDrink extends Component {
 
                         <div>
                             <h3>Drink Picture Preview</h3>
-                            <img className="admin-drink-image" src={this.state.drink_pic_url} alt={this.state.drink_title} height="250" />
+                            <img className="admin-drink-image" src={this.state.drink_pic_url} alt={this.state.drink_title} />
                         </div>
 
                         <div className="drink-submit-buttons">
