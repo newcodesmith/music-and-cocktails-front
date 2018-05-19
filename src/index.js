@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import Header from './Header.jsx';
 import registerServiceWorker from './registerServiceWorker';
-import SplashPage from './SplashPage.jsx'
+import NewSplashPage from './NewSplashPage.jsx'
 import Home from './Home.jsx';
 import AdminPage from './admin/AdminPage';
 import AlbumAndDrinkPage from './AlbumAndDrinkPage';
@@ -14,7 +14,8 @@ ReactDOM.render(
     <Router>
         <div>
             <Header />
-            <Route exact path="/" component={SplashPage} />
+            <Route exact path="/" component={NewSplashPage} />
+            {/* <Route exact path="/" component={SplashPage} /> */}
             <Route exact path="/home" component={Home} />
             <Route exact path="/Rock-Pop" component={AlbumAndDrinkPage} />
             <Route exact path="/Indie" component={AlbumAndDrinkPage} />
@@ -23,7 +24,6 @@ ReactDOM.render(
             <Route exact path="/Folk-Country" component={AlbumAndDrinkPage} />
             <Route exact path="/Rap" component={AlbumAndDrinkPage} />
             <Route exact path="/admin" component={AdminPage} />
-            <Footer />
         </div>
     </Router>,
 

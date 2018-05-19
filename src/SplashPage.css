@@ -1,0 +1,47 @@
+
+.splash-page {
+    /* height: 50%; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    top: -20;
+    bottom: 30;
+    fixed: -20;
+  }
+  
+  .splash-title {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(201, 201, 201);
+    z-index: 10;
+  }
+  
+  .splash-button {
+    margin: auto;
+    z-index: 10;
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: auto;
+    background: #267da0;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    font-family: 'Raleway', sans-serif;
+    width: 10rem;
+    margin: auto;
+  }
+  
+  .buttons:hover {
+    background: #154b92;
+  }
+  
+  p {
+    font-family: 'Lato', sans-serif;
+  }

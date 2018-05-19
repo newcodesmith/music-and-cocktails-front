@@ -3,6 +3,8 @@ import { Parallax, Background } from 'react-parallax';
 import ToggleDisplay from 'react-toggle-display';
 import AdminAlbums from "./AdminAlbums.jsx";
 import AdminDrinks from "./AdminDrinks";
+import Footer from "../Footer.jsx";
+import './Admin.css';
 
 
 class AdminPage extends Component {
@@ -24,9 +26,9 @@ class AdminPage extends Component {
 
         <div className="admin-title">
           <Parallax
-            bgImage={require('./admin-title-image.jpg')}
+            bgImage={require('./source.gif')}
             bgImageAlt="turntable"
-            strength={-150}
+            strength={-175}
           >
             <div style={{ height: '400px' }} />
           </Parallax>
@@ -64,6 +66,7 @@ class AdminPage extends Component {
 
         </div>
 
+      <Footer />
       </div>
     );
   }

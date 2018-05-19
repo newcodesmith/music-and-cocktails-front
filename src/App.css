@@ -1,86 +1,13 @@
-.nav-bar {
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  flex-direction: row;
-  height: 5rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(31, 31, 31, 0.301), 0 8px 16px rgba(43, 43, 43, 0.432);
-}
 
-.nav-bar h1 {
-  color: white;
-  font-size: 3rem;
-  margin: .8rem auto 0 1rem;
-  font-family: 'Unica One', cursive;
-}
 
-#nav-buttons ul {
-  list-style-type: none;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  text-align: right;
-}
-
-#nav-buttons li {
-  color: #f1f1f1a8;
-  text-align: center;
-  padding: .5rem;
-  text-decoration: none;
-  text-align: center;
-  font-size: 1rem;
-  width: 5rem;
-  margin-top: .4rem;
-  margin-right: 1rem;
-}
-
-#nav-buttons li:hover {
-  text-decoration: underline;
-  color: #f1f1f1;
-
-}
-
-.nav-logo {
-  border: .1rem solid rgb(255, 255, 255);
-  display: inline-block;
-  width: 4.8rem;
-  height: 4.8rem;
-  /* background-color: rgba(0, 0, 0, 0.85); */
-  margin-left: 1rem;
-}
-
-.nav-logo p {
-  display: block;
-  text-align: center;
-  color: #f1f1f1;
-}
-
-.splash-screen {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-p {
-  font-family: 'Lato', sans-serif;
-}
 .about-album {
   height: 400px;
   float: right;
 }
 
-/* entire container, keeps perspective */
-
 .flip-container {
   perspective: 1000px;
 }
-
-/* flip the pane when hovered */
 
 .flip-container:hover .flipper,
 .flip-container.hover .flipper {
@@ -94,15 +21,11 @@ p {
   height: 400px;
 }
 
-/* flip speed goes here */
-
 .flipper {
   transition: 0.4s;
   transform-style: preserve-3d;
   position: relative;
 }
-
-/* hide back of pane during swap */
 
 .front,
 .back {
@@ -112,16 +35,11 @@ p {
   left: 0;
 }
 
-/* front pane, placed above back */
-
 .front {
   z-index: 2;
-  /* for firefox 31 */
   transform: rotateY(0deg);
-  border: 1px solid black;
+  border: black solid 1px;
 }
-
-/* back, initially hidden pane */
 
 .back {
   transform: rotateY(180deg);
@@ -134,286 +52,4 @@ p {
 
 .front-1 {
   background-color: rgb(255, 230, 0);
-}
-
-.back-1 {}
-
-#admin-page {
-  margin-bottom: 4rem; 
-}
-
-.admin-title {
-  position: relative;
-  text-align: left;
-}
-
-.admin-title h1 {
-  border: 2px solid rgb(134, 51, 243);
-  color: rgb(255, 255, 255);
-  font-size: 50px;
-  margin: 30px;
-  padding: .5rem;
-  position: absolute;
-  top: 20rem;
-  left: 70%;
-  transform: translate(-40%, -80%);
-  width: 495px;
-  text-shadow: 0 8px 16px rgba(65, 65, 65, 0.37), 0 8px 16px rgba(26, 26, 26, 0.603);
-}
-
-.edit-album-form-layout {
-  display: flex;
-  flex-direction: row;
-}
-
-.edit-album-form-1,
-.edit-album-form-2 {
-  width: 50%;
-  margin: 1rem;
-}
-
-input[type=text],
-textarea[type=text],
-select {
-  border: 1px solid #ccc;
-  border-radius: none;
-  box-sizing: border-box;
-  display: inline-block;
-  font-size: 1rem;
-  margin: 8px 0;
-  padding: 14px 8px;
-  width: 80%;
-}
-
-.album-id {
-  width: 2rem;
-}
-
-.form-id-genre {
-  display: flex;
-  flex-direction: row;
-}
-
-.album-detail-card,
-.drink-detail-card,
-.admin-drink-info-card {
-  background-color: #f1f1f1;
-  border: 1.5px solid #7222a7;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-  font-family: 'Raleway', sans-serif;
-  margin: 10px auto;
-  max-width: 80%;
-  min-width: 800px;
-  padding: 20px;
-  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-}
-
-.album-detail-card:hover,
-.drink-detail-card:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.album-detail-card h1,
-.drink-detail-card h1 {
-  font-size: 2rem;
-}
-
-.album-detail-card input[type="text"],
-.drink-detail-card input[type="text"],
-.album-detail-card input[type="url"],
-.drink-detail-card input[type="url"],
-.album-detail-card textarea,
-.drink-detail-card textarea,
-.Select-control {
-  font-family: 'Raleway', sans-serif;
-  background: rgba(255, 255, 255, .1);
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  margin: 0;
-  outline: 0;
-  padding: 7px;
-  width: 100%;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  background-color: #ffffff;
-  color: #56545c;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin-bottom: 30px;
-}
-
-.admin-album-cover-container {
-  margin-bottom: 3rem;
-  width: 200px;
-}
-
-.admin-album-cover-container h5 {
-  color: #56545c;
-  font-family: 'Raleway', sans-serif;
-  font-size: 16px;
-  margin: 0;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.Select-control {
-  -webkit-appearance: menulist-button;
-  height: 35px;
-}
-
-.buttons {
-  position: relative;
-  display: block;
-  padding: 19px 39px 18px 39px;
-  color: #FFF;
-  margin: auto;
-  background: #7226c9;
-  font-size: 18px;
-  text-align: center;
-  font-style: normal;
-  font-family: 'Raleway', sans-serif;
-  width: 10rem;
-  border: 1px solid #3c0e5a;
-  margin: 20px;
-}
-
-.buttons:hover {
-  background: #561592;
-}
-
-
-.album-detail-card input[type="submit"],
-.drink-detail-card input[type="submit"],
-.album-detail-card input[type="button"],
-.drink-detail-card input[type="button"],
-.drink-detail-card input[type="reset"] {
-  position: relative;
-  display: block;
-  padding: 19px 39px 18px 39px;
-  color: #FFF;
-  margin: auto;
-  background: #7226c9;
-  font-size: 18px;
-  text-align: center;
-  font-style: normal;
-  font-family: 'Raleway', sans-serif;
-  width: 30%;
-  border: 1px solid #3c0e5a;
-  margin-bottom: 10px;
-}
-
-.album-detail-card input[type="submit"]:hover,
-.drink-detail-card input[type="button"]:hover,
-.album-detail-card input[type="submit"]:hover,
-.drink-detail-card input[type="button"]:hover,
-.drink-detail-card input[type="reset"]:hover {
-  background: #561592;
-}
-
-.drink-submit-buttons {
-  display: flex;
-  flex-direction: row;
-  margin: 2rem;
-}
-
-.button-delete-message {
-  border: 1px solid rgb(216, 8, 8);
-  color: rgb(216, 8, 8);
-  font-size: 18px;
-  text-align: center;
-  font-style: normal;
-  font-family: 'Raleway', sans-serif;
-  margin: auto;
-  width: 50%;
-}
-
-.admin-album-image {
-  max-height: 200px;
-  min-width: 150px;
-  border: 1px solid black;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);
-}
-
-.admin-drink-image {
-  max-height: 225px;
-  min-height: 220px;
-  min-width: 150px;
-  border: 1px solid black;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);
-}
-
-.message {
-  color: red;
-  font-size: 1.5rem;
-  margin-top: 0;
-}
-
-.admin-drink-info-card {
-  background-color: rgb(219, 218, 218);
-  width: 375px;
-  min-width: 200px;
-}
-
-.admin-drink-info-card h1 {
-  margin-top: 0rem;
-}
-
-.admin-drink-info {
-  display: flex;
-  flex-direction: row;
-}
-
-.admin-drink-info ul {
-  margin: 0px;
-}
-
-.admin-drink-info li {
-  margin-bottom: 1rem;
-}
-
-#footer {
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  flex-direction: row;
-  height: 2rem;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(31, 31, 31, 0.301), 0 8px 16px rgba(43, 43, 43, 0.432);
-}
-
-#footer h1 {
-  color: white;
-  font-size: 1rem;
-  margin: .3rem auto 0 1rem;
-}
-
-#footer-buttons ul {
-  list-style-type: none;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  text-align: right;
-  margin: 0;
-}
-
-#footer-buttons li {
-  color: #f1f1f1a8;
-  text-align: center;
-  padding: .5rem;
-  text-decoration: none;
-  text-align: center;
-  font-size: 1rem;
-  width: 5rem;
-  margin-right: 1rem;
-}
-
-#footer-buttons li:hover {
-  text-decoration: underline;
-  color: #f1f1f1;
-
 }

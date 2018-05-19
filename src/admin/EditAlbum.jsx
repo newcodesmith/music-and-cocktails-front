@@ -33,9 +33,9 @@ class EditAlbum extends Component {
             album_title: this.state.album_title,
             album_info: this.state.album_info,
             album_cover_url: this.state.album_cover_url,
+            artist_pic: this.state.artist_pic,
             spotify_album_id: this.state.spotify_album_id,
             album_drink_id: this.state.album_drink_id,
-            accent_color: this.state.accent_color
         }
 
         this.props.updateAlbumData(updatedAlbumInfo)
@@ -116,12 +116,29 @@ class EditAlbum extends Component {
                                     defaultValue={this.props.album_cover_url}
                                 />
 
-                                <div className="admin-album-cover-container">
-                                    <h5>Album Cover Preview:</h5>
-                                    <div className="admin-album-image">
-                                        <img src={this.state.album_cover_url} alt={this.props.album_title} height="200px" />
+                                <div className="admin-pic-preview">
+                                    <div className="admin-album-cover-container">
+                                        <h5>Album Cover Preview:</h5>
+                                        <div className="admin-album-image">
+                                            <img src={this.state.album_cover_url} alt={this.props.album_title} height="200px" />
+                                        </div>
+                                    </div>
+
+                                    <div className="admin-artist-photo-container">
+                                        <h5>Artist Photo Preview:</h5>
+                                        <div className="admin-artist-image">
+                                            <img src={this.state.artist_pic} alt={this.props.artist_pic} height="200px" />
+                                        </div>
                                     </div>
                                 </div>
+
+                                <label>Artist Photo:</label>
+                                <textarea
+                                    type="url"
+                                    name='artist_pic'
+                                    onChange={this.handleChange}
+                                    defaultValue={this.props.artist_pic}
+                                />
 
                                 <label>Spotify Album ID:</label>
                                 <input

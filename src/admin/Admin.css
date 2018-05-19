@@ -1,0 +1,248 @@
+
+#admin-page {
+    margin-bottom: 4rem;
+  }
+  
+  .admin-title {
+    position: relative;
+    text-align: left;
+  }
+  
+  .admin-title h1 {
+    border: rgb(134, 51, 243) solid 2px;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    margin: 30px;
+    padding: 0.5rem;
+    position: absolute;
+    top: 20rem;
+    left: 70%;
+    transform: translate(-40%, -80%);
+    width: 495px;
+    text-shadow: 0 8px 16px rgba(65, 65, 65, 0.37), 0 8px 16px rgba(26, 26, 26, 0.603);
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .edit-album-form-layout {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .edit-album-form-1,
+  .edit-album-form-2 {
+    width: 50%;
+    margin: 1rem;
+  }
+  
+  input[type="text"],
+  textarea[type="text"],
+  select {
+    border: #ccc solid 1px;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 8px 0;
+    padding: 14px 8px;
+    width: 80%;
+  }
+  
+  .album-id {
+    width: 2rem;
+  }
+  
+  .form-id-genre {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .album-detail-card,
+  .drink-detail-card,
+  .admin-drink-info-card {
+    background-color: #f1f1f1;
+    border: #7222a7 solid 1.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    font-family: 'Raleway', sans-serif;
+    margin: 10px auto;
+    max-width: 80%;
+    min-width: 800px;
+    padding: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .album-detail-card:hover,
+  .drink-detail-card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .album-detail-card h1,
+  .drink-detail-card h1 {
+    font-size: 2rem;
+  }
+  
+  .album-detail-card input[type="text"],
+  .drink-detail-card input[type="text"],
+  .album-detail-card input[type="url"],
+  .drink-detail-card input[type="url"],
+  .album-detail-card textarea,
+  .drink-detail-card textarea,
+  .Select-control {
+    font-family: 'Raleway', sans-serif;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0;
+    outline: 0;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #56545c;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 30px;
+  }
+
+  .admin-pic-preview {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4rem;
+  }
+  
+  .admin-album-cover-container,
+  .admin-artist-photo-container  {
+    margin-bottom: 3rem;
+    height: 200px;
+    margin: auto;
+  }
+  
+  .admin-album-cover-container h5,
+  .admin-artist-photo-container h5 {
+    color: #56545c;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+
+  
+  .Select-control {
+    height: 35px;
+  }
+  
+  .buttons {
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: auto;
+    background: #7226c9;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    font-family: 'Raleway', sans-serif;
+    width: 10rem;
+    border: #3c0e5a solid 1px;
+    margin: 20px;
+  }
+  
+  .buttons:hover {
+    background: #561592;
+  }
+  
+  .album-detail-card input[type="submit"],
+  .drink-detail-card input[type="submit"],
+  .album-detail-card input[type="button"],
+  .drink-detail-card input[type="button"],
+  .drink-detail-card input[type="reset"] {
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: auto;
+    background: #7226c9;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    font-family: 'Raleway', sans-serif;
+    width: 30%;
+    border: #3c0e5a solid 1px;
+    margin-bottom: 10px;
+  }
+  
+  .album-detail-card input[type="submit"]:hover,
+  .drink-detail-card input[type="button"]:hover,
+  .album-detail-card input[type="submit"]:hover,
+  .drink-detail-card input[type="button"]:hover,
+  .drink-detail-card input[type="reset"]:hover {
+    background: #561592;
+  }
+  
+  .drink-submit-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+  }
+  
+  .button-delete-message {
+    border: rgb(216, 8, 8) solid 1px;
+    color: rgb(216, 8, 8);
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    font-family: 'Raleway', sans-serif;
+    margin: auto;
+    width: 50%;
+  }
+  
+  .admin-album-image,
+  .admin-artist-image {
+    max-height: 200px;
+    min-width: 150px;
+    border: black solid 1px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);
+  }
+  
+  .admin-drink-image {
+    max-height: 225px;
+    min-height: 220px;
+    min-width: 150px;
+    border: black solid 1px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.37), 0 2px 4px rgba(0, 0, 0, 0.603);
+  }
+
+
+  
+  .message {
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  
+  .admin-drink-info-card {
+    background-color: rgb(219, 218, 218);
+    width: 375px;
+    min-width: 200px;
+  }
+  
+  .admin-drink-info-card h1 {
+    margin-top: 0;
+  }
+  
+  .admin-drink-info {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .admin-drink-info ul {
+    margin: 0;
+  }
+  
+  .admin-drink-info li {
+    margin-bottom: 1rem;
+  }
+  
