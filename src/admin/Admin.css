@@ -67,7 +67,7 @@
     font-family: 'Raleway', sans-serif;
     margin: 10px auto;
     max-width: 80%;
-    min-width: 800px;
+    min-width: 1200px;
     padding: 20px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }

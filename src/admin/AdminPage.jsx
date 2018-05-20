@@ -65,8 +65,6 @@ class AdminPage extends Component {
           </ToggleDisplay>
 
         </div>
-
-      <Footer />
       </div>
     );
   }

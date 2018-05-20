@@ -1,55 +1,52 @@
-
-
+.album-page {
+margin-top: 7rem;
+}
 .about-album {
   height: 400px;
   float: right;
 }
-
-.flip-container {
-  perspective: 1000px;
-}
-
-.flip-container:hover .flipper,
-.flip-container.hover .flipper {
-  transform: rotateY(180deg);
-}
-
-.flip-container,
-.front,
-.back {
-  width: 400px;
-  height: 400px;
-}
-
-.flipper {
-  transition: 0.4s;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.front,
-.back {
-  backface-visibility: hidden;
+.card {
   position: absolute;
-  top: 0;
-  left: 0;
+  width: 400px;
+  height: 400px;
+  float: left;
+  perspective: 2000px;
 }
 
-.front {
-  z-index: 2;
-  transform: rotateY(0deg);
-  border: black solid 1px;
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .content {
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(241, 229, 47);
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  backface-visibility: hidden;
 }
 
 .back {
-  transform: rotateY(180deg);
+  transform: rotateY( 180deg );
 }
 
-.back img {
+.about-album {
+  padding: 0 25px 0 425px;
+  min-width: 800px; 
+}
+
+.artist-pic-container{
   height: 400px;
-  width: 400px;
-}
-
-.front-1 {
-  background-color: rgb(255, 230, 0);
+  width: 100%;
 }

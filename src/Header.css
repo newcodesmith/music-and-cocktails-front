@@ -43,12 +43,16 @@
   }
   
   .nav-logo {
-    /* background-color: rgba(0, 0, 0, 0.85); */
-    border: .1rem solid rgb(255, 255, 255);
     display: inline-block;
     height: 4.8rem;
     margin-left: 1rem;
     width: 4.8rem;
+  }
+
+  .nav-logo img {
+    padding: 2px;
+    border: .1rem solid rgb(255, 255, 255);
+    position: relative;
   }
   
   .nav-logo p {
