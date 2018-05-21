@@ -1,8 +1,10 @@
 .splash-page {
   min-height: 100%;
-  background-position: left bottom;
+  background-position: center;
   position: fixed;
   min-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .splash-title {
@@ -23,7 +25,7 @@
   display: block;
   padding: 20px 40px 20px 40px;
   color: rgb(255, 255, 255);
-  background: #535353;
+  background: #4b4b4b;
   font-size: 18px;
   text-align: center;
   font-style: normal;

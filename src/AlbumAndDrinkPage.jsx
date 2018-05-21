@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 
 import queryString from "query-string"
-import UserDrinkInfoCard from './UserDrinkInfoCard.jsx';
 import UserAlbumCard from './UserAlbumCard';
 
 class AlbumAndDrinkPage extends Component {
     state = {
-        albumId: this.props.location.state,
+        albumId: 1,
         accessToken: queryString.parse(window.location.search).access_token,
         albumData: {},
         userData: [],
@@ -45,16 +44,11 @@ class AlbumAndDrinkPage extends Component {
         this.getUserData();
     }
 
-    render() {
-        // console.log("parent state", this.state);
-        
+    render() {        
         return (
             <div>
                 <UserAlbumCard
                     {...this.state}
-                />
-                <UserDrinkInfoCard
-                    drinkInfo={this.state.albumData}
                 />
             </div>
         )

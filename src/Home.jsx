@@ -19,42 +19,41 @@ class Home extends Component {
     let accessToken = parsed.access_token
 
     fetch("https://api.spotify.com/v1/me", {
-      headers: {"Authorization": "Bearer " + accessToken}
+      headers: { "Authorization": "Bearer " + accessToken }
     })
-    .then(response => {
-      return response.json()
-    })
-    .then(data => {
-      this.setState({
-        userData: data
+      .then(response => {
+        return response.json()
       })
-    });
+      .then(data => {
+        this.setState({
+          userData: data
+        })
+      });
   }
 
   getAlbums() {
     const albumsUrl = "http://localhost:3000/albums";
     let albumsDataGrab = response => {
-        this.setState({ albumsData: response });
+      this.setState({ albumsData: response });
     };
     return fetch(albumsUrl)
-        .then(response => response.json())
-        .then(albumsDataGrab)
-}
+      .then(response => response.json())
+      .then(albumsDataGrab)
+  }
 
-    componentDidMount () {
-      this.getAccessToken();
-      this.getAlbums();
-    }
+  componentDidMount() {
+    this.getAccessToken();
+    this.getAlbums();
+  }
 
   render() {
 
     return (
-      <div className="App">
-        <h1>Hello This is the home page</h1>
-        <p>Some info about the site</p>
-        <HomePageGenres 
-        albumsData= {this.state.albumsData}
-        userData= {this.state.userData}
+      <div className="home-page">
+        <img className="home-page-pic" src={require('./record-collection-1.jpg')} alt=""/>
+        <HomePageGenres
+          albumsData={this.state.albumsData}
+          userData={this.state.userData}
         />
 
       </div>

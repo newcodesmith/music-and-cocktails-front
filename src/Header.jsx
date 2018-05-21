@@ -8,7 +8,7 @@ class Header extends Component {
                 <div className="nav-logo">
                 <img src={require('./music-cocktails-logo.png')} alt="spotify" height="70px"/>
                 </div>
-                <h1>Music + Cocktails</h1>
+                <h1>Music+Cocktails</h1>
                 <nav id="nav-buttons">
                     <ul>
                         <li onClick={() => window.location = "/home"}>Home</li>

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { render } from "react-dom";
 import queryString from "query-string"
-
+import AlbumAndDrinkPage from './AlbumAndDrinkPage';
 
 class HomePageGenres extends Component {
-
 
     render() {
         let parsed = queryString.parse(window.location.search)
@@ -13,24 +12,33 @@ class HomePageGenres extends Component {
         return (
             albumsData.sort((a, b) => a.album_id - b.album_id).map(albumData => {
                 return (
-                    <div key={albumData.genre}>
-                        <h1>{albumData.genre}</h1>
-                        <h3>This months {albumData.genre} pick is "{albumData.album_title}" by {albumData.artist}.</h3>
-                        <h3>Were have paired a {albumData.drink_title} with this album.</h3>
-                        <p>Click here to listen and learn more.</p>
+                    <div key={albumData.genre} id={`${albumData.genre}-container`} className="container">"
+                            <div className='container'>
+                            <div className={`genre-button genre-button-${albumData.album_id}`}>
+                                <div className="album-title-popup">
+                                    <h4>{albumData.genre} Album</h4>
+                                    <h3>{`${albumData.artist} : "${albumData.album_title}"`}</h3>
+                                </div>
+                            </div>
 
-                        <Link to={{
-                            pathname: `/${albumData.genre}`,
-                            search: `?access_token=${accessToken}`,
-                            state: `${albumData.album_id}`
-                        }}>
-                            <button
-                                type="button"
-                                className="genre-button"
-                            >{albumData.genre}</button>
+                            {/* <div className="album-modal">
+                                <div className="card">
+                                    <div className="content">
+                                        <div className={`front front-${albumData.album_id}`}>
+                                            <img src={albumData.album_cover_url} alt={albumData.album_title} height="800px" />
+                                        </div>
+                                        <div className={`back back-${albumData.album_id}`}>
+                                            <div className="album-modal-container">
+                                                <AlbumAndDrinkPage
+                                                    albumId={albumData}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> */}
 
-                        </Link>
-
+                        </div>
                     </div>
                 )
             })
