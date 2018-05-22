@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
 import queryString from "query-string"
 import UserAlbumCard from './UserAlbumCard';
 
@@ -20,7 +19,7 @@ class AlbumModal extends Component {
             if (album.drink_id === selectedAlbum) {
                 return album
             }
-        })[0];
+        })[0]
         return (
             <div className="album-modal" >
                 <span className="close" onClick={this.props.closeModal.bind(this)}>Close</span>

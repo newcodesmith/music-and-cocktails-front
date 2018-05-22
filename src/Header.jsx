@@ -6,7 +6,7 @@ class Header extends Component {
         return (
             <div className="nav-bar">
                 <div className="nav-logo">
-                <img src={require('./music-cocktails-logo.png')} alt="spotify" height="70px"/>
+                <img src={require('./assets/music-cocktails-logo.png')} alt="spotify" height="70px"/>
                 </div>
                 <h1>Music+Cocktails</h1>
                 <nav id="nav-buttons">

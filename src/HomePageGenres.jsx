@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
 import queryString from "query-string"
-import AlbumAndDrinkPage from './AlbumAndDrinkPage';
-import AlbumModal from './AlbumModal';
 
 class HomePageGenres extends Component {
     state = {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Parallax, Background } from 'react-parallax';
 import './App.css';
 import UserDrinkInfoCard from './UserDrinkInfoCard.jsx';
 
@@ -10,10 +9,8 @@ class UserAlbumCard extends Component {
 
     render() {
         const albumInfo = this.props.albumData;
-        const artistPic = albumInfo.artist_pic
 
         const size = {
-            width: '50%',
             height: 270,
             width: 390,
         };
