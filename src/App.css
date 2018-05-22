@@ -132,7 +132,7 @@
 
 .close {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   margin: 700px;
 }
@@ -146,7 +146,7 @@ cursor: pointer;
   position: absolute;
   width: 800px;
   height: 800px;
-  perspective: 2000px;
+  perspective: 6000px;
 }
 
 .content {
