@@ -122,12 +122,24 @@
 }
 
 .album-modal {
- background-color: rgba(0, 0, 0, 0.384);
+ /* background-color: rgba(0, 0, 0, 0.384); */
  z-index: 300;
  position: absolute;
  top: 3rem;
  left: 30%;
  transform: translate(-3rem, -30%);
+}
+
+.close {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin: 700px;
+}
+
+.close:hover {
+text-decoration: underline;
+cursor: pointer;
 }
 
 .card {
