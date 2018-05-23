@@ -43,7 +43,6 @@ class Home extends Component {
   }
 
   openModal = (albumId) => {
-    console.log(albumId, "the event ID");
     this.setState({ album_id: albumId });
     this.setState({ isShown: !this.state.isShown });
   }
