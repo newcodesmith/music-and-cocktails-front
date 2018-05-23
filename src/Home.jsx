@@ -33,7 +33,7 @@ class Home extends Component {
   }
 
   getAlbums() {
-    const albumsUrl = "http://localhost:3000/albums";
+    const albumsUrl = "https://music-and-cocktails-api.herokuapp.com/albums";
     let albumsDataGrab = response => {
       this.setState({ albumsData: response });
     };

@@ -50,7 +50,7 @@ class AdminDrinks extends Component {
     }
 
     addDrinkData = (drink) => {
-        let updateUrl = "http://localhost:3000/drinks";
+        let updateUrl = "https://music-and-cocktails-api.herokuapp.com/drinks";
         return fetch(updateUrl, {
             method: "POST",
             headers: {
