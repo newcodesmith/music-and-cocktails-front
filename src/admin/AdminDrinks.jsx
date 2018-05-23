@@ -22,7 +22,7 @@ class AdminDrinks extends Component {
     updateDrinkData = (drink) => {
         console.log(drink);
 
-        let updateUrl = `http://localhost:3000/drinks/${drink.drink_id}`;
+        let updateUrl = `https://music-and-cocktails-api.herokuapp.com/drinks/${drink.drink_id}`;
         return fetch(updateUrl, {
             method: "PUT",
             headers: {
@@ -37,7 +37,7 @@ class AdminDrinks extends Component {
 
     deleteDrinkData = (drinkId) => {
         let id = drinkId;
-        let deleteUrl = `http://localhost:3000/drinks/${id}`;
+        let deleteUrl = `https://music-and-cocktails-api.herokuapp.com/drinks/${id}`;
 
         return fetch(deleteUrl, {
             method: "DELETE",
