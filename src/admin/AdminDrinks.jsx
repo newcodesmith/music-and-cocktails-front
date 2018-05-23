@@ -10,7 +10,7 @@ class AdminDrinks extends Component {
     };
 
     getDrinks = () => {
-        const drinksUrl = "http://localhost:3000/drinks";
+        const drinksUrl = "https://music-and-cocktails-api.herokuapp.com/drinks";
         let drinksDataGrab = response => {
             this.setState({ drinksData: response });
         };
