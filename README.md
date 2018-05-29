@@ -1,21 +1,21 @@
-#Music and Cocktails
+# Music and Cocktails
 
-##Purpose
+## Purpose
 Continuing my love for music and records, I created this app as a mock monthly record club that features 6 curated albums from different genres with a paired drink. The app allows you to see some info on the album and the paired drink as well as listen to the album on Spotify. In the future I would see the ability to buy the record and maybe a mixed drink package.
 
-##Technologies used
+## Technologies used
 HTML, CSS, React.js, Express, Knex, PostgreSQL, Spotify API
 
-##Live Site
+## Live Site
 Click [here]( https://top-albums-list.firebaseapp.com/) to enjoy!
 
-##Backend Repos
+## Backend Repos
 Click [here]( https://github.com/newcodesmith/music-and-cocktails-back) to see the backend repo.
 Click [here]( https://github.com/newcodesmith/Spotify-BackEnd) to see the Spotify backend repo.
 
-##Installation
+## Installation
 To run locally,  clone repo and run "npm install" then "npm start"
 
-##License
+## License
 2018 NEWCODESMITH
 
