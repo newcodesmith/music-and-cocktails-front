@@ -7,7 +7,7 @@ Continuing my love for music and records, I created this app as a mock monthly r
 HTML, CSS, React.js, Express, Knex, PostgreSQL, Spotify API
 
 ## Live Site
-Click [here]( https://top-albums-list.firebaseapp.com/) to enjoy!
+Click [here](https://music-and-cocktails.firebaseapp.com/) to enjoy!
 
 ## Backend Repos
 Click [here]( https://github.com/newcodesmith/music-and-cocktails-back) to see the backend repo.
