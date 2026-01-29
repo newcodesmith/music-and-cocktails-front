@@ -15,11 +15,13 @@
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
   z-index: 10;
-  text-shadow: 0 4px 12px rgba(31, 31, 31, 0.534), 0 8px 16px rgba(43, 43, 43, 0.582);
-
+  text-shadow:
+    0 4px 12px rgba(31, 31, 31, 0.534),
+    0 8px 16px rgba(43, 43, 43, 0.582);
 }
 
 .splash-button {
+  cursor: pointer;
   z-index: 10;
   position: relative;
   display: block;
@@ -29,15 +31,17 @@
   font-size: 18px;
   text-align: center;
   font-style: normal;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   width: 10rem;
   margin: auto;
   margin-top: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.281), 0 8px 16px rgba(0, 0, 0, 0.39);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.281),
+    0 8px 16px rgba(0, 0, 0, 0.39);
 }
 
 .splash-button:hover {
-  background: #272727;
+  background: #1DB954;
 }
 
 .spotify-logo {
@@ -51,4 +55,14 @@ h1 {
 p {
   font-size: 1.1rem;
   margin: 0px;
+}
+
+@media screen and (max-width: 440px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
 }

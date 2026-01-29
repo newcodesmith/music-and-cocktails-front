@@ -1,66 +1,66 @@
 import React, { Component } from "react";
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
-import DrinkInfoCard from './DrinkInfoCard';
-
-
+import Select from "react-select";
+import "react-select/dist/react-select.css";
+import DrinkInfoCard from "./DrinkInfoCard";
 
 class DrinkOptions extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            drinksData: []
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      drinksData: [],
+    };
+  }
 
+  getDrinks = () => {
+    const drinksUrl = "http://localhost:3300/drinks";
+    let drinksDataGrab = (response) => {
+      this.setState({ drinksData: response });
+    };
+    return fetch(drinksUrl)
+      .then((response) => response.json())
+      .then(drinksDataGrab)
+      .catch();
+  };
 
-    getDrinks = () => {
-        const drinksUrl = "https://music-and-cocktails-api.herokuapp.com/drinks";
-        let drinksDataGrab = response => {
-            this.setState({ drinksData: response });
-        };
-        return fetch(drinksUrl)
-            .then(response => response.json())
-            .then(drinksDataGrab)
-            .catch();
-    }
+  updateSelectedDrink = (drink) => {
+    this.setState({ drinkValue: parseInt(drink.value, 10) });
+    this.props.updateDrinkSelection(drink);
+  };
 
-    updateState = (drink) => {
-        this.setState({ drinkValue: parseInt(drink.value) });
-    }
+  componentDidMount() {
+    this.getDrinks();
+    const newState = {
+      ...this.state,
+      ...this.props,
+    };
+    this.setState(newState);
+  }
 
-    componentDidMount() {
-        this.getDrinks()
-        const newState = {
-            ...this.state,
-            ...this.props
-        }
-        this.setState(newState)
-    }
+  render() {
+    const drinkInfo = this.state.drinksData;
+    var options = drinkInfo
+      .sort((a, b) => a - b)
+      .map((drink) => {
+        return { value: `${drink.drink_id}`, label: `${drink.drink_title}` };
+      });
 
-    render() {
-        const drinkInfo = this.state.drinksData;
-        var options = drinkInfo.sort((a, b) => a - b).map((drink) => {
-            return { value: `${drink.drink_id}`, label: `${drink.drink_title}` }
-        });
-
-
-        return (
-            <div>
-                <Select
-                    name="album_drink_id"
-                    value={this.props.drinkValue}
-                    options={options}
-                    onChange={this.updateState.bind(this)}
-                    onChange={this.props.updateDrinkSelection}
-                />
-                <DrinkInfoCard
-                    drinksData={this.state.drinksData}
-                    drinkId={this.props.drinkValue}
-                />
-            </div>
-        )
-    }
+    return (
+      <div>
+        <Select
+          name="album_drink_id"
+          value={this.props.drinkValue}
+          options={options}
+          onChange={(drink) => {
+            this.updateSelectedDrink(drink);
+          }}
+        />
+        <DrinkInfoCard
+          drinksData={this.state.drinksData}
+          drinkId={this.props.drinkValue}
+        />
+      </div>
+    );
+  }
 }
 
 export default DrinkOptions;

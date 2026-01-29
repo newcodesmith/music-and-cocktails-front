@@ -5,6 +5,7 @@ class UserDrinkInfoCard extends Component {
 
     render() {
         const drinkInfo = this.props.drinkInfo;
+        const drinkIngredients = drinkInfo && drinkInfo.ingredients.split('; ');
         
         return (
             <div className="drink-info-card">
@@ -16,10 +17,9 @@ class UserDrinkInfoCard extends Component {
                     </div>
                     <div className="drink-ingredients">
                         <ul>
-                            <li>
-                                {drinkInfo.ingredients}
-                            </li>
-
+                            {drinkIngredients && drinkIngredients.map((ingredient, index) => (
+                                <li key={index}>{ingredient}</li>
+                            )) }
                         </ul>
                     </div>
                 </div>

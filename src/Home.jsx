@@ -1,80 +1,94 @@
-import React, { Component } from 'react';
-import queryString from "query-string"
-import './App.css';
+import React, { Component, Fragment } from "react";
+import queryString from "query-string";
+import "./App.css";
 
-import HomePageGenres from './HomePageGenres.jsx'
-import AlbumModal from './AlbumModal.jsx';
-import Footer from './Footer.jsx';
+import HomePageGenres from "./HomePageGenres.jsx";
+import Footer from "./Footer.jsx";
+import LoadingScreen from "./LoadingScreen.jsx";
+import AlbumModal from "./AlbumModal.jsx";
 
 class Home extends Component {
-
   state = {
     userData: {},
     albumsData: [],
     album_id: null,
     isShown: false,
+    isModalOpen: false,
   };
+  async getAccessToken() {
+    const parsed = queryString.parse(window.location.search);
+    const accessToken = parsed.access_token;
 
-  getAccessToken() {
-    let parsed = queryString.parse(window.location.search)
-    let accessToken = parsed.access_token
-
-    fetch("https://api.spotify.com/v1/me", {
-      headers: { "Authorization": "Bearer " + accessToken }
-    })
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        this.setState({
-          userData: data
-        })
+    try {
+      const response = await fetch("https://api.spotify.com/v1/me", {
+        headers: { Authorization: "Bearer " + accessToken },
       });
+      const data = await response.json();
+      this.setState({ userData: data });
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
   }
 
-  getAlbums() {
-    const albumsUrl = "https://music-and-cocktails-api.herokuapp.com/albums";
-    let albumsDataGrab = response => {
-      this.setState({ albumsData: response });
-    };
-    return fetch(albumsUrl)
-      .then(response => response.json())
-      .then(albumsDataGrab)
+  async getAlbums() {
+    // const albumsUrl = "https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums";
+    const albumsUrl = "http://localhost:3300/albums";
+
+    try {
+      const response = await fetch(albumsUrl);
+      const data = await response.json();
+      this.setState({ albumsData: data });
+    } catch (error) {
+      console.error("Error fetching albums:", error);
+    }
   }
 
   openModal = (albumId) => {
     this.setState({ album_id: albumId });
     this.setState({ isShown: !this.state.isShown });
-  }
+    this.setState({ isModalOpen: true });
+  };
 
   closeModal = (event) => {
     this.setState({ isShown: false });
-  }
+    this.setState({ isModalOpen: false });
+  };
 
   componentDidMount() {
     this.getAlbums();
   }
 
   render() {
-
     return (
       <div className="home-page">
-        
-        <img className="home-page-pic" src={require('./assets/record-collection-1.jpg')} alt="" />
+        {this.state.albumsData && this.state.albumsData.length > 0 ? (
+          <Fragment>
+            <img
+              className="home-page-pic"
+              src={require("./assets/record-collection-1.jpg")}
+              alt=""
+            />
 
-        <HomePageGenres
-          albumsData={this.state.albumsData}
-          userData={this.state.userData}
-          openModal={this.openModal}
-        />
-        {this.state.isShown ?
+            <HomePageGenres
+              albumsData={this.state.albumsData}
+              userData={this.state.userData}
+              openModal={this.openModal}
+            />
+            {this.state.isShown ? (
+              <AlbumModal
+                isOpen={this.state.isModalOpen}
+                onClose={this.closeModal}
+                albumsData={this.state.albumsData}
+                albumId={this.state.album_id}
+                closeModal={this.closeModal}
+              />
+            ) : null}
+          </Fragment>
+        ) : (
+          <LoadingScreen />
+        )}
 
-          <AlbumModal
-            albumsData={this.state.albumsData}
-            albumId={this.state.album_id}
-            closeModal={this.closeModal}
-          /> : null}
-          <Footer />
+        <Footer />
       </div>
     );
   }

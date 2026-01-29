@@ -12,7 +12,7 @@ class UserAlbumCard extends Component {
 
         const size = {
             height: 270,
-            width: 390,
+            width: '100%',
         };
         const view = 'list'; // or 'coverart'
         const theme = 'black'; // or 'white'
@@ -25,14 +25,14 @@ class UserAlbumCard extends Component {
                         <h2>{albumInfo.artist}:</h2>
                         <h2>{albumInfo.album_title}</h2>
                         <div className="artist-pic">
-                            <img src={albumInfo.artist_pic} alt="" height="200px" margin="auto" />
+                            <img src={albumInfo.artist_pic} alt="" />
                             <div className="about-album">
                                 <p>{albumInfo.album_info}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="drink-info">
+                    <div className="drink-info-container">
                         <UserDrinkInfoCard
                             drinkInfo={albumInfo}
                         />                        

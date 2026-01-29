@@ -11,14 +11,16 @@ class SplashPage extends Component {
                     <div className="splash-title">
                         <h1>Welcome to Music and Cocktails</h1>
                         <p>Music and Cocktails is your place to discover curated music with a paired drink. Every month we provide a different album and paired drink from a few different genres for you to enjoy. </p>
-                        <p>In order to use this service you will need a to sign into to a valid Spotify account</p>
+                        {/* <p>In order to use this service you will need a to sign into to a valid Spotify account</p> */}
                         <div
-                            onClick={() => window.location = "https://spotify-back-end.herokuapp.com/login"}
+                            // onClick={() => window.location = "https://spotify-back-end-bc7779173275.herokuapp.com/login"}
+                            onClick={() => window.location = "/home"}
                             className="splash-button"
                         >
-                            <b>Sign In</b>
+                            {/* <b>Sign In</b> */}
+                            <b>Enter</b>
                         </div>
-                        <img className="spotify-logo" src={require('./assets/spotify-logo.png')} alt="spotify" height="40px" />
+                        {/* <img className="spotify-logo" src={require('./assets/spotify-logo.png')} alt="spotify" height="40px" /> */}
                     </div>
                 </div>
                 <Footer />

@@ -8,7 +8,8 @@ class AdminAlbums extends Component {
     };
 
     getAlbums = () => {
-        const albumsUrl = "https://music-and-cocktails-api.herokuapp.com/albums";
+        // const albumsUrl = "https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums";
+         const albumsUrl = "http://localhost:3300/albums";
         return fetch(albumsUrl)
             .then(response => response.json())
             .then(response => {
@@ -17,7 +18,8 @@ class AdminAlbums extends Component {
     }
 
     updateAlbumData = (album) => {
-        let updateUrl = `https://music-and-cocktails-api.herokuapp.com/albums/${album.album_id}`;
+        // let updateUrl = `https://https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums/${album.album_id}`;
+        let updateUrl = `http://localhost:3300/albums/${album.album_id}`;
         return fetch(updateUrl, {
             method: "PUT",
             headers: {

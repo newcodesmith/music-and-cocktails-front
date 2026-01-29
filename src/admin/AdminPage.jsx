@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Parallax } from 'react-parallax';
-import ToggleDisplay from 'react-toggle-display';
+import { Parallax } from "react-parallax";
+import ToggleDisplay from "react-toggle-display";
 import AdminAlbums from "./AdminAlbums.jsx";
 import AdminDrinks from "./AdminDrinks";
 import Footer from "../Footer.jsx";
-import './Admin.css';
-
+import "./Admin.css";
 
 class AdminPage extends Component {
   constructor() {
@@ -15,59 +14,54 @@ class AdminPage extends Component {
 
   handleClick() {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   }
 
   render() {
-
     return (
       <div id="admin-page">
-
         <div className="admin-title">
           <Parallax
-            bgImage={require('./assets/source.gif')}
+            bgImage={require("./assets/source.gif")}
             bgImageAlt="turntable"
             strength={-175}
           >
-            <div style={{ height: '400px' }} />
+            <div style={{ height: "400px" }} />
           </Parallax>
           <h1>
             <ToggleDisplay show={!this.state.show}>
               Admin Panel: Albums
-          </ToggleDisplay>
+            </ToggleDisplay>
             <ToggleDisplay if={this.state.show} tag="section">
               Admin Panel: Drinks
-          </ToggleDisplay>
+            </ToggleDisplay>
           </h1>
-
         </div>
 
         <div>
-
-          <div className="buttons" onClick={() => this.handleClick()}>
-            <ToggleDisplay show={!this.state.show}>
-              Edit Drinks
-          </ToggleDisplay>
+          <div
+            className="buttons toggle-buttons"
+            onClick={() => this.handleClick()}
+          >
+            <ToggleDisplay show={!this.state.show}>Edit Drinks</ToggleDisplay>
             <ToggleDisplay if={this.state.show} tag="section">
               Edit Albums
-          </ToggleDisplay>
+            </ToggleDisplay>
           </div>
 
-          <ToggleDisplay show={!this.state.show}>
-            <AdminAlbums
-            />
-          </ToggleDisplay>
+          <div className="detail-cards-containers">
+            <ToggleDisplay show={!this.state.show}>
+              <AdminAlbums />
+            </ToggleDisplay>
 
-          <ToggleDisplay if={this.state.show} tag="section">
-            <AdminDrinks
-            />
-          </ToggleDisplay>
-
+            <ToggleDisplay if={this.state.show} tag="section">
+              <AdminDrinks />
+            </ToggleDisplay>
+          </div>
         </div>
 
         <Footer />
-
       </div>
     );
   }

@@ -1,4 +1,35 @@
+div::-webkit-scrollbar {
+  width: 4px; /* width of the vertical scrollbar */
+  background-color: #c7c7c7; /* track color */
+}
 
+/* Style the scrollbar thumb (draggable handle) */
+div::-webkit-scrollbar-thumb {
+  background-color: #000; /* color of the thumb */
+}
+
+/* Style the scrollbar track (the non-moving background) */
+div::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.loading-screen {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading-screen img {
+  max-height: 150px;
+}
+
+.loading-screen h2 {
+  color: #fff;
+  margin: 10px 0;
+}
 
 .home-page-pic {
   max-height: 100%;
@@ -9,26 +40,23 @@
   background-size: cover;
   margin: auto;
   z-index: -1;
-
 }
 
 .genre-button {
   width: 1.7rem;
   height: 1.7rem;
   position: absolute;
-  opacity: .9;
+  opacity: 0.9;
   border-radius: 50%;
   text-align: center;
   color: rgb(255, 255, 255);
   z-index: 1;
-  text-shadow: 0 4px 12px rgba(31, 31, 31, 0.534), 0 8px 16px rgba(43, 43, 43, 0.582);
+  text-shadow:
+    0 4px 12px rgba(31, 31, 31, 0.534),
+    0 8px 16px rgba(43, 43, 43, 0.582);
   cursor: pointer;
   transition-duration: 0.2s;
   background-color: rgb(255, 0, 0);
-}
-
-.genre-button .album-title-popup {
-  visibility: hidden;
 }
 
 .genre-button:hover {
@@ -36,17 +64,28 @@
   animation: none;
 }
 
-.genre-button:hover .album-title-popup { 
-  visibility: visible;
-  opacity: 1;
-  animation: none;
+.album-title-popup {
+  position: fixed;
+  z-index: 9999;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.815);
+  margin: 0.5rem;
+  border: 1px solid white;
+  max-width: 20rem;
+}
+
+.album-title-popup h4,
+.album-title-popup h5 {
+  margin: 0;
 }
 
 .genre-button-1 {
   top: 60%;
   left: 10%;
   transform: translate(-40%, -90%);
-  /* background-color: rgb(255, 230, 0); */
 }
 
 .genre-button-2 {
@@ -84,62 +123,39 @@
   /* background-color: rgb(255, 0, 0); */
 }
 
-.album-title-popup {
-  width: 16rem;
-  text-align: left;
-  padding: .5rem;
-  background-color: rgba(0, 0, 0, 0.815);
-  margin: 0 0 0 2rem;
-  border: 1px solid white;
-  transition: opacity .5s ease;
-}
-
-.album-title-popup h4, 
-.album-title-popup h5 {
-  margin: 0;
-}
-
 .genre-button {
   animation: kreep 1s ease 2s infinite alternate;
 }
 
 @keyframes kreep {
   from {
-    opacity: .40
+    opacity: 0.4;
   }
   40% {
-    opacity: 0.75
+    opacity: 0.75;
   }
   50% {
-    opacity: 1
+    opacity: 1;
   }
   60% {
-    opacity: 0.75
+    opacity: 0.75;
   }
   to {
-    opacity: .40
+    opacity: 0.4;
   }
 }
 
-.album-modal {
- /* background-color: rgba(0, 0, 0, 0.384); */
- z-index: 300;
- position: absolute;
- top: 2rem;
- left: 30%;
- transform: translate(-3rem, -30%);
-}
-
-.close {
-  color: white;
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 700px;
-}
+/* .album-modal {
+  z-index: 300;
+  position: absolute;
+  top: 2rem;
+  left: 30%;
+  transform: translate(-3rem, -30%);
+} */
 
 .close:hover {
-text-decoration: underline;
-cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .card {
@@ -158,95 +174,139 @@ cursor: pointer;
 }
 
 .card:hover .content {
-  transform: rotateY( 180deg ) ;
+  transform: rotateY(180deg);
   transition: transform 0.5s;
 }
 
 .front,
 .back {
-  position: absolute;
   height: 100%;
   width: 100%;
   color: rgb(0, 0, 0);
   font-size: 3rem;
   backface-visibility: hidden;
-  border: .5rem solid whitesmoke;
+  border: 0.5rem solid whitesmoke;
+}
 
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .back {
-  transform: rotateY( 180deg );
-    background-color: antiquewhite;
-
+  background-color: antiquewhite;
 }
 
 .album-page h2 {
-  font-size: 2.5rem;
-  margin: 1rem; 
-  width: 20rem;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  margin: 1rem;
 }
 
 .album-cover-top {
   display: flex;
   flex-direction: row;
   margin: auto;
+  position: relative;
+  width: 100%;
 }
 
 .album-cover-title {
-  padding: .5rem;
-  /* width: 300px; */
+  width: 50%;
   border: 1px solid black;
-  margin: .5rem;
-  height: 765px;
+  margin: 0.5rem 0.25rem 0.5rem 0.5rem;
+}
+
+.album-modal-container,
+.album-page,
+.album-cover-top {
+  height: 100%;
 }
 
 .artist-pic {
   margin: auto;
+  padding: 0 10px;
   text-align: center;
 }
 
-.drink-info {
-  /* margin: .5rem; */
-  margin-top: .5rem;
-  width: 390px;
+.artist-pic img {
+  max-height: 200px;
+  width: auto;
+  max-width: 100%;
 }
 
-.drink-img {
-  height: 175px;
+.drink-info-container,
+.album-cover-title {
+  overflow: auto;
+}
+
+.drink-info-container {
+  margin: 0.5rem 0.5rem 0.5rem 0.25rem;
+  width: 50%;
+}
+
+.drink-info {
+  margin: 20px 0;
+}
+
+.drink-img img {
+  margin: 0 auto 20px auto;
+  display: block;
 }
 
 .about-album {
-  margin: .5rem;
+  margin: 0.5rem;
   display: flex;
   flex-direction: row;
-  width: 350px;
 }
 
 .about-album p {
-  font-size: .9rem;
+  font-size: 0.9rem;
   max-height: 380px;
 }
 
 .drink-info-card {
   border: 1px solid black;
-  margin: 0;
+  margin: 0 0 20px 0;
   padding: 1rem;
 }
 
-.drink-info-card h3{
-  font-size: 2rem;
+.drink-info-card h3 {
+  font-size: clamp(1rem, 2.5vw, 2rem);
   margin: 0 0 1rem 0;
 }
 
-.drink-info-card ul{
+.drink-info-card p {
+  font-size: clamp(1rem, 2vw, 1rem);
+}
+
+.drink-info-card ul {
   margin: 0;
-} 
+}
 
 .drink-ingredients {
   max-width: 325px;
 }
 
-.drink-info-card li{
-  font-size: 1rem;
-  margin: 0 0 1rem 0;
+.drink-info-card li {
+  font-size: .9rem;
+  margin: 0 0 .5rem 0;
+}
+
+@media screen and (max-width: 800px) {
+  .album-cover-top {
+    display: block;
+    overflow: auto;
+  }
+  .album-cover-title,
+  .drink-info-container {
+    width: auto;
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .album-title-popup {
+    display: none;
+  }
 }

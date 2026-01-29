@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import Header from './Header.jsx';
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker.js';
 import SplashPage from './SplashPage.jsx'
 import Home from './Home.jsx';
-import AdminPage from './admin/AdminPage';
+import AdminPage from './admin/AdminPage.jsx';
 
 ReactDOM.render(
     <Router>
