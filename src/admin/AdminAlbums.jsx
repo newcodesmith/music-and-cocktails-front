@@ -2,21 +2,6 @@ import React, { Component } from "react";
 import EditAlbum from "./EditAlbum.jsx"
 
 class AdminAlbums extends Component {
-
-    state = {
-        albumsData: []
-    };
-
-    getAlbums = () => {
-        // const albumsUrl = "https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums";
-         const albumsUrl = "http://localhost:3300/albums";
-        return fetch(albumsUrl)
-            .then(response => response.json())
-            .then(response => {
-                this.setState({ albumsData: response });
-            })
-    }
-
     updateAlbumData = (album) => {
         // let updateUrl = `https://https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums/${album.album_id}`;
         let updateUrl = `http://localhost:3300/albums/${album.album_id}`;
@@ -32,12 +17,8 @@ class AdminAlbums extends Component {
             .catch(err => console.error(err));
     }
 
-    componentDidMount() {
-        this.getAlbums();
-    }
-
     render() {
-        const albumAndDrink = this.state.albumsData;
+        const albumAndDrink = this.props.albumsData ? this.props.albumsData : [];
 
         return (
 
