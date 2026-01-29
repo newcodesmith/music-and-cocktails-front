@@ -11,7 +11,7 @@ class UserAlbumCard extends Component {
         const albumInfo = this.props.albumData;
 
         const size = {
-            height: 270,
+            height: '155px',
             width: '100%',
         };
         const view = 'list'; // or 'coverart'

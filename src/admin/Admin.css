@@ -35,6 +35,12 @@ p {
   flex-direction: row;
 }
 
+.edit-album-form-layout label,
+.drink-input label {
+  display: block;
+  margin-bottom: 10px;
+}
+
 .edit-album-form-1,
 .edit-album-form-2 {
   width: 50%;
@@ -182,20 +188,27 @@ select {
   display: block;
   padding: 19px 39px 18px 39px;
   color: #fff;
-  margin: auto;
+margin: 10px;
   background: #7226c9;
   font-size: 18px;
   text-align: center;
   font-style: normal;
   font-family: "Raleway", sans-serif;
   max-width: 200px;
+  width: auto;
   border: #3c0e5a solid 1px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  padding: 20px 30px;
 }
 
 .album-detail-card input:hover,
 .drink-detail-card input:hover {
   background: #561592;
+}
+
+.submit-buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .submit-buttons input {
@@ -205,7 +218,8 @@ select {
 .drink-submit-buttons {
   display: flex;
   flex-direction: row;
-  margin: 2rem;
+  margin: 2rem 0;
+  justify-content: center;
 }
 
 .drink-submit-buttons input {
