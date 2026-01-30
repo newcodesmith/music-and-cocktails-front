@@ -29,7 +29,7 @@ class AddDrink extends Component {
             drink_pic_url: this.state.drink_pic_url
         }
         this.props.addDrinkData(DrinkInfo)
-            .then(() => this.props.getDrinks())
+            .then(() => this.props.getDrinks)
             .then(response => {
                 this.setState({
                     message: "Your drink was submitted",

@@ -7,13 +7,14 @@ class EditDrink extends Component {
       ...this.props,
     };
   }
+  
 
   componentDidMount() {
     const newState = {
       ...this.state,
       ...this.props,
     };
-    this.setState(newState);
+    this.setState(newState);    
   }
 
   handleChange = (event) => {
