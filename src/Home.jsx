@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import queryString from "query-string";
 import "./App.css";
 
 import HomePageGenres from "./HomePageGenres.jsx";
@@ -15,20 +14,6 @@ class Home extends Component {
     isShown: false,
     isModalOpen: false,
   };
-  async getAccessToken() {
-    const parsed = queryString.parse(window.location.search);
-    const accessToken = parsed.access_token;
-
-    try {
-      const response = await fetch("https://api.spotify.com/v1/me", {
-        headers: { Authorization: "Bearer " + accessToken },
-      });
-      const data = await response.json();
-      this.setState({ userData: data });
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  }
 
   async getAlbums() {
     // const albumsUrl = "https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums";

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import EditAlbum from "./EditAlbum.jsx"
 
 class AdminAlbums extends Component {
-    updateAlbumData = (album) => {
+    updateAlbumData = (album) => {        
         // let updateUrl = `https://https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums/${album.album_id}`;
         let updateUrl = `http://localhost:3300/albums/${album.album_id}`;
         return fetch(updateUrl, {
@@ -19,6 +19,7 @@ class AdminAlbums extends Component {
 
     render() {
         const albumAndDrink = this.props.albumsData ? this.props.albumsData : [];
+        const getAlbums = this.props.getAlbums;
 
         return (
 
@@ -27,7 +28,7 @@ class AdminAlbums extends Component {
                     <EditAlbum
                         key={data.album_id} {...data}
                         updateAlbumData={this.updateAlbumData}
-                        getAlbums={this.getAlbums}
+                        getAlbums={getAlbums}
 
                     />
                 )

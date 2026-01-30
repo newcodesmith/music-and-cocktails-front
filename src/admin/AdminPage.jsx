@@ -91,11 +91,17 @@ class AdminPage extends Component {
 
               <div className="detail-cards-containers">
                 <ToggleDisplay show={!this.state.show}>
-                  <AdminAlbums albumsData={this.state.albumsData} />
+                  <AdminAlbums
+                    albumsData={this.state.albumsData}
+                    getAlbums={this.getAlbums}
+                  />
                 </ToggleDisplay>
 
                 <ToggleDisplay if={this.state.show} tag="section">
-                  <AdminDrinks drinksData={this.state.drinksData} />
+                  <AdminDrinks
+                    drinksData={this.state.drinksData}
+                    getDrinks={this.getDrinks}
+                  />
                 </ToggleDisplay>
               </div>
             </div>

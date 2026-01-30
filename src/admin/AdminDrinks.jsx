@@ -46,10 +46,10 @@ class AdminDrinks extends Component {
 
   render() {
     const drinkInfo = this.props.drinksData;
-
+    const { getDrinks } = this.props.getDrinks;
     return (
       <div>
-        <AddDrink getDrinks={this.getDrinks} addDrinkData={this.addDrinkData} />
+        <AddDrink getDrinks={getDrinks} addDrinkData={this.addDrinkData} />
         {drinkInfo
           .sort((a, b) => a.drink_id - b.drink_id)
           .map((drink) => (
