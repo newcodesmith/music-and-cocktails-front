@@ -4,7 +4,7 @@ import EditAlbum from "./EditAlbum.jsx"
 class AdminAlbums extends Component {
     updateAlbumData = (album) => {        
         // let updateUrl = `https://https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums/${album.album_id}`;
-        let updateUrl = `http://localhost:3300/albums/${album.album_id}`;
+        let updateUrl = `https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/albums/${album.album_id}`;
         return fetch(updateUrl, {
             method: "PUT",
             headers: {

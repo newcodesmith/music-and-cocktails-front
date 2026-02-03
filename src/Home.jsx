@@ -17,7 +17,7 @@ class Home extends Component {
 
   async getAlbums() {
     // const albumsUrl = "https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums";
-    const albumsUrl = "http://localhost:3300/albums";
+    const albumsUrl = "https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/albums";
 
     try {
       const response = await fetch(albumsUrl);

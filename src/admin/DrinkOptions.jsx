@@ -12,7 +12,7 @@ class DrinkOptions extends Component {
   }
 
   getDrinks = () => {
-    const drinksUrl = "http://localhost:3300/drinks";
+    const drinksUrl = "https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/drinks";
     let drinksDataGrab = (response) => {
       this.setState({ drinksData: response });
     };

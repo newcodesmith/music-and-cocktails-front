@@ -4,7 +4,7 @@ import AddDrink from "./AddDrink.jsx";
 
 class AdminDrinks extends Component {
   updateDrinkData = (drink) => {
-    let updateUrl = `http://localhost:3300/drinks/${drink.drink_id}`;
+    let updateUrl = `https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/drinks/${drink.drink_id}`;
     return fetch(updateUrl, {
       method: "PUT",
       headers: {
@@ -19,7 +19,7 @@ class AdminDrinks extends Component {
 
   deleteDrinkData = (drinkId) => {
     let id = drinkId;
-    let deleteUrl = `http://localhost:3300/drinks/${id}`;
+    let deleteUrl = `https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/drinks/${id}`;
 
     return fetch(deleteUrl, {
       method: "DELETE",
@@ -31,7 +31,7 @@ class AdminDrinks extends Component {
   };
 
   addDrinkData = (drink) => {
-    let updateUrl = "http://localhost:3300/drinks";
+    let updateUrl = "https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/drinks";
     return fetch(updateUrl, {
       method: "POST",
       headers: {

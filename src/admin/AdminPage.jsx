@@ -20,7 +20,7 @@ class AdminPage extends Component {
 
   getAlbums = async () => {
     // const albumsUrl = "https://music-and-cocktails-api-e2b71b349cc8.herokuapp.com/albums";
-    const albumsUrl = "http://localhost:3300/albums";
+    const albumsUrl = "https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/albums";
     try {
       const response = await fetch(albumsUrl);
       const data = await response.json();
@@ -31,7 +31,7 @@ class AdminPage extends Component {
   };
 
   getDrinks = async () => {
-    const drinksUrl = "http://localhost:3300/drinks";
+    const drinksUrl = "https://music-and-cocktails-api-1c87360d2e0b.herokuapp.com/drinks";
     try {
       const response = await fetch(drinksUrl);
       const data = await response.json();
