@@ -5,8 +5,6 @@ class Footer extends Component {
   render() {
     const location = window.location.pathname;
 
-    console.log(location, "the location");
-
     return (
       <div id="footer">
         <h1>&copy; NEWCODESMITH 2018</h1>
