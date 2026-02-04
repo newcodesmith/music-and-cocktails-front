@@ -42,9 +42,16 @@
 }
 
 .modal-click-me {
-  color: white;
+  color: #000;
+  display: inline;
   text-align: center;
   display: none;
+  margin: 10px auto;
+  width: fit-content;
+  padding: 5px 10px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 470px) {

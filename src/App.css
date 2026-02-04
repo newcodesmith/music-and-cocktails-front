@@ -304,6 +304,10 @@ div::-webkit-scrollbar-track {
     width: auto;
     margin: 5px;
   }
+
+  .about-album p {
+    max-height: none;
+  }
 }
 
 @media screen and (max-width: 470px) {

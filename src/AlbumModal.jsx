@@ -44,18 +44,17 @@ class AlbumModal extends Component {
 
     return (
       <div className="modal-overlay" onClick={onClose}>
-        {/* <div className="close-button-container" onClick={onClose}>
-          <span className="close">Close</span>
-        </div> */}
         <div
           className="modal-square"
           onClick={(e) => e.stopPropagation()}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
-          onTouchStart={this.handleTouchStart}
         >
           <div className={`flip-card ${flipped ? "flipped" : ""}`}>
-            <div className="flip-card-front">
+            <div
+              className="flip-card-front"
+              onTouchStart={this.handleTouchStart}
+            >
               <div
                 className={`front front-${singleAlbum && singleAlbum.album_id}`}
               >
@@ -64,7 +63,6 @@ class AlbumModal extends Component {
                   alt={singleAlbum && singleAlbum.album_title}
                 />
               </div>
-              <div className="modal-click-me">Click Cover</div>
             </div>
 
             <div className="flip-card-back">
@@ -80,6 +78,9 @@ class AlbumModal extends Component {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="modal-click-me" onClick={this.handleTouchStart}>
+            {flipped ? "Click to see cover" : "Click for details"}
           </div>
         </div>
       </div>
