@@ -1,0 +1,53 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.nav-bar {
+  background-color: $color-nav-bg;
+  display: flex;
+  flex-direction: row;
+  height: 5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $z-nav;
+
+  h1 {
+    color: white;
+    font-family: "Unica One", cursive;
+    font-size: 3rem;
+    margin: 0 auto 0 1rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  margin-left: 1rem;
+  text-decoration: none;
+  color: inherit;
+
+  img {
+    padding: 2px;
+    border: 0.1rem solid rgb(255, 255, 255);
+    height: 4rem;
+    width: 4rem;
+    box-sizing: border-box;
+  }
+
+  @include respond-to($bp-xs) {
+    h1 {
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}

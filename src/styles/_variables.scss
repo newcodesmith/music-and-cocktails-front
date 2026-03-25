@@ -1,0 +1,23 @@
+// Breakpoints
+$bp-xs: 440px;
+$bp-sm: 470px;
+$bp-md: 640px;
+$bp-lg: 800px;
+$bp-xl: 940px;
+
+// Colours
+$color-primary:        #7226c9;
+$color-primary-dark:   #561592;
+$color-primary-border: #3c0e5a;
+$color-spotify:        #1DB954;
+$color-nav-bg:         rgba(0, 0, 0, 0.85);
+$color-text-light:     #f1f1f1;
+$color-text-muted:     #56545c;
+$color-border:         #7222a7;
+$color-card-bg:        #f1f1f1;
+
+// Z-index scale
+$z-nav:     100;
+$z-footer:  200;
+$z-modal:   999;
+$z-tooltip: 9999;

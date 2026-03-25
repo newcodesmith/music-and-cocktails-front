@@ -1,0 +1,231 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+div {
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: #c7c7c7;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #000;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.loading-screen {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img { max-height: 150px; }
+  h2  { color: #fff; margin: 10px 0; }
+}
+
+.error-message {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.home-page-pic {
+  max-height: 100%;
+  background-position: center;
+  position: fixed;
+  min-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  z-index: -1;
+}
+
+.genre-button {
+  width: 1.7rem;
+  height: 1.7rem;
+  position: absolute;
+  opacity: 0.9;
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  text-shadow:
+    0 4px 12px rgba(31, 31, 31, 0.534),
+    0 8px 16px rgba(43, 43, 43, 0.582);
+  cursor: pointer;
+  transition-duration: 0.2s;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  padding: 0;
+  animation: kreep 1s ease 2s infinite alternate;
+
+  &:hover {
+    opacity: 1;
+    animation: none;
+  }
+
+  &-1 { top: 60%; left: 10%; transform: translate(-40%, -90%); }
+  &-2 { top: 20%; left: 30%; transform: translate(-80%, -70%); }
+  &-3 { top: 65%; left: 80%; transform: translate(-20%, -35%); }
+  &-4 { top: 15%; left: 80%; transform: translate(-85%, -20%); }
+  &-5 { top: 85%; left: 35%; transform: translate(-15%, -65%); }
+  &-6 { top: 60%; left: 55%; transform: translate(-40%, -35%); }
+}
+
+@keyframes kreep {
+  from  { opacity: 0.4; }
+  40%   { opacity: 0.75; }
+  50%   { opacity: 1; }
+  60%   { opacity: 0.75; }
+  to    { opacity: 0.4; }
+}
+
+.album-title-popup {
+  position: fixed;
+  z-index: $z-tooltip;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.815);
+  margin: 0.5rem;
+  border: 1px solid white;
+  max-width: 20rem;
+
+  h4, h5 { margin: 0; }
+
+  @include respond-to($bp-sm) {
+    display: none;
+  }
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  backface-visibility: hidden;
+  border: 0.5rem solid whitesmoke;
+  background-color: white;
+}
+
+.front {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.back {
+  background-color: antiquewhite;
+}
+
+.album-modal-container,
+.album-page,
+.album-cover-top {
+  height: 100%;
+}
+
+.album-page {
+  h2 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    margin: 1rem;
+  }
+}
+
+.album-cover-top {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  position: relative;
+  width: 100%;
+}
+
+.album-cover-title {
+  width: 50%;
+  border: 1px solid black;
+  margin: 0.5rem 0.25rem 0.5rem 0.5rem;
+}
+
+.drink-info-container,
+.album-cover-title {
+  overflow: auto;
+}
+
+.drink-info-container {
+  margin: 0.5rem 0.5rem 0.5rem 0.25rem;
+  width: 50%;
+}
+
+.drink-info {
+  margin: 20px 0;
+}
+
+.drink-img {
+  img {
+    margin: 0 auto 20px;
+    display: block;
+  }
+}
+
+.artist-pic {
+  margin: auto;
+  padding: 0 10px;
+  text-align: center;
+
+  img {
+    max-height: 200px;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.about-album {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+
+  p {
+    font-size: 0.9rem;
+    max-height: 380px;
+  }
+}
+
+.drink-info-card {
+  border: 1px solid black;
+  margin: 0 0 20px;
+  padding: 1rem;
+
+  h3 { font-size: clamp(1rem, 2.5vw, 2rem); margin: 0 0 1rem; }
+  p  { font-size: clamp(1rem, 2vw, 1rem); }
+  ul { margin: 0; }
+  li { font-size: 0.9rem; margin: 0 0 0.5rem; }
+}
+
+.drink-ingredients {
+  max-width: 325px;
+}
+
+@include respond-to($bp-lg) {
+  .album-cover-top {
+    display: block;
+    overflow: auto;
+  }
+
+  .album-cover-title,
+  .drink-info-container {
+    width: auto;
+    margin: 5px;
+  }
+
+  .about-album p {
+    max-height: none;
+  }
+}

@@ -1,23 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './index.css';
-import Header from './Header.jsx';
-import registerServiceWorker from './registerServiceWorker.js';
-import SplashPage from './SplashPage.jsx'
-import Home from './Home.jsx';
-import AdminPage from './admin/AdminPage.jsx';
+import './styles/index.scss';
+import Header from './components/layout/Header';
+import SplashPage from './pages/SplashPage';
+import HomePage from './pages/HomePage';
+import AdminPage from './components/admin/AdminPage';
+import ErrorBoundary from './components/common/ErrorBoundary';
+import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
+  <ErrorBoundary>
     <Router>
-        <div>
-            <Header />
-            <Route exact path="/" component={SplashPage} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/admin" component={AdminPage} />
-            <footer />
-        </div>
-    </Router>,
+      <div>
+        <Header />
+        <Route exact path="/" component={SplashPage} />
+        <Route exact path="/home" component={HomePage} />
+        <Route exact path="/admin" component={AdminPage} />
+      </div>
+    </Router>
+  </ErrorBoundary>,
+  document.getElementById('root')
+);
 
-    document.getElementById('root'));
 registerServiceWorker();

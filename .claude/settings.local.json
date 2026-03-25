@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(CI=true npm test 2>&1)",
+      "Bash(CI=true npm test)",
+      "Bash(find /Users/michaelsmith/Documents/Personal/music-and-cocktails-front -name cypress.json -o -name .env* -o -name firebase.json)"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+@mixin respond-to($bp) {
+  @media screen and (max-width: $bp) {
+    @content;
+  }
+}
